@@ -1,0 +1,171 @@
+---
+title: "Stats Behavioural"
+output: html_notebook
+---
+
+In this notebook the pure behavioural analysis is conducted.
+Imports first ...
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(readr)
+library(mgcv)
+library(lme4)
+library(data.table)
+```
+
+Load the behavioural data from the datadir.
+
+```{r echo=FALSE}
+# Get the DATADIR environment variable and read in data
+datadir <- Sys.getenv("DATADIR")
+resdir <- Sys.getenv("RESDIR")
+fig_path <- file.path(resdir, 'Figures', 'Main', 'behavioural_results')
+behav_dir <- file.path(datadir, "derivatives", "eeg-preproc")
+
+
+# subject IDs and file names
+subjects <- sprintf("%03d", 13:52)
+modalities <- c('elec', 'mecha')
+
+# Pre-allocate list to store each subject's data
+df_list_meta <- list()
+
+# Load and process each subject
+for (mod in modalities) {
+  for (i in seq_along(subjects)) {
+    
+    sub_id <- subjects[i]
+    write(sub_id)
+    file_path_meta <- file.path(behav_dir,
+      paste0("sub-", sub_id), paste0("ses-", mod),
+      paste0("sub-", sub_id, "_ses-", mod, "_task-NT_allmetadata.tsv")
+    )
+    
+    # Skip iteration if file does not exist
+    if (!file.exists(file_path_meta)) {
+      message(paste("No data for subject", sub_id))
+      next
+    }
+    
+    # Read large file efficiently
+    df_metadata <- fread(file_path_meta, sep = "\t")
+    
+    # Convert intensity_level to factor and numeric
+    df_metadata$intensity_level <- factor(df_metadata$intensity_level)
+    df_metadata$modality <- factor(df_metadata$modality)
+    df_metadata$intensity_num <- as.numeric(df_metadata$intensity_level) -1
+    df_metadata$response_bin <- ifelse(df_metadata$response_decoded == "Yes", 1, ifelse(df_metadata$response_decoded == "No", 0, NaN))
+    
+    # exclude bad data and border intensities 
+    df_metadata <- df_metadata[analysis_excluded == FALSE]
+
+    desired_cols <- c("sub", "modality", "block", "intensity_level", "intensity_norm", "intensity_num", "response_decoded", "response_bin", "force", "force_quantile", "response_time")
+  
+    df_metadata <- df_metadata[, desired_cols, with = FALSE]
+    df_list_meta[[length(df_list_meta) + 1]] <- df_metadata
+  }
+}
+# Combine all into one big data.table
+df_all_meta <- rbindlist(df_list_meta)
+df_all_meta <- as.data.table(df_all_meta)
+```
+
+# Overview
+Make some overview plots:
+- How many subjects do we have per modality
+```{r}
+ggplot(df_all_meta[, .(num_subjects = uniqueN(sub)), by = modality], aes(x = modality, y = num_subjects)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Number of Subjects per Modality")
+```
+- How many trials per modality 
+```{r}
+ggplot(df_all_meta[, .N, by = modality], aes(x = modality, y = N)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Number of Trials per Modality")
+```
+- Number of trials by intensity
+```{r}
+ggplot(df_all_meta[, .N, by = .(intensity_level, response_decoded)], aes(x = intensity_level, y = N)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Number of Trials per Intensity")
+```
+
+- Response by force
+```{r}
+
+# Filter for modality mecha, response == "Yes", and non-missing force values
+df_mecha_yes <- df_all_meta[
+  modality == "Mechanical" & 
+  response_decoded == "Yes" & 
+  !is.na(response_decoded) & 
+  !is.na(force_quantile)
+]
+```
+
+
+# Statistical Analysis
+- test if there is a statistical difference between the effect of modalities on response
+- if yes, make a model separately
+
+```{r}
+# prepare data
+df_all_meta <- df_all_meta[intensity_num > 1]
+df_all_meta <- df_all_meta[intensity_num < 7]
+sapply(df_all_meta[, .(modality, intensity_level, force)], function(x) length(levels(x)))
+table(df_all_meta$modality)
+table(df_all_meta$intensity_level)
+table(df_all_meta$block)
+df_model <- df_all_meta[!is.na(force)]
+
+```
+## Check prerequisits for using GLM analysis
+Since I model binary responses, I am using the logit as a link function. 
+1. Response variable is binary
+2. Homogeneity of variance 
+3. Independence of observations (we cannot test this here, this is an assumption we make)
+
+```{r}
+# Fit logistic regression model first
+model <- glm(response_bin ~ intensity_num + modality, family = binomial(link = "logit"), data = df_all_meta)
+
+# Create dataset with predictor and linear predictor
+df_all_meta$linear_pred <- predict(model, type = "link")  # linear predictor = log-odds
+
+# Function to plot predictor vs log-odds with smoothing curve
+plot_predictor_logit <- function(df, predictor) {
+  ggplot(df, aes_string(x = predictor, y = "linear_pred")) +
+    geom_point(alpha = 0.2, size = 1) +
+    geom_smooth(method = "loess", color = "blue", se = TRUE) +
+    labs(title = paste("Linearity check of", predictor, "vs log-odds"),
+         x = predictor,
+         y = "Linear predictor (log-odds)") +
+    theme_minimal()
+}
+
+# Plot for intensity_num
+p1 <- plot_predictor_logit(df_all_meta, "intensity_num")
+print(p1)
+
+# Plot for force
+p2 <- plot_predictor_logit(df_all_meta, "force")
+print(p2)
+```
+
+## Compute the statistical models
+```{r}
+#model_force glm()
+#model1 <- glmer(response_bin ~ modality + intensity_num + force + (1|sub), family = binomial(link = "logit"), data = df_all_meta)
+model2 <- glm(response_bin ~ modality * intensity_norm, family = binomial(link = "logit"), data = df_all_meta)
+model3 <- glm(response_bin ~ modality * intensity_level + block, family = binomial(link = "logit"), data = df_all_meta)
+```
+
+## Variance inflation computation
+```{r}
+
+```
+

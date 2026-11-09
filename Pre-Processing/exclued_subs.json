@@ -1,0 +1,15 @@
+{
+  "reason": "post-cue RMS SNR below 1.5x amplitude ratio in O1/O2",
+  "criterion": {
+    "script": "Analysis/EEGAnalysis/step016_erp_snr.py",
+    "metric": "snr_rms",
+    "window": "postcue",
+    "channels": ["O1", "O2"],
+    "threshold_ratio": 1.5
+  },
+  "source_table": "Statistics/eeg/erp_snr/erp_snr_below_threshold_preprestim.csv",
+  "exclude": {
+    "elec": [30, 45, 48],
+    "mecha": [17, 31, 48]
+  }
+}

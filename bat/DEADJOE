@@ -1,0 +1,28 @@
+
+*** These modified files were found in JOE when it aborted on Wed Jul 30 13:32:11 2025
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+/data/hu_grossmannr/Downloads/Miniforge3-Linux-x86_64.sh
+/data/hu_grossmannr/Desktop/p_02989/shared_workspace/grossmannr_wd/bat/start.sh
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jmacsrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jmacsrc
+
+*** These modified files were found in JOE when it aborted on Thu Aug 21 16:43:36 2025
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+/data/hu_grossmannr/Downloads/Miniforge3-Linux-x86_64.sh
+/data/p_02989/Modelling/grossmannr_wd/SomatosensoryLaminarModel/.git/MERGE_MSG
+* Build Log *
+/data/hu_grossmannr/Desktop/p_02989/shared_workspace/grossmannr_wd/bat/start.sh
+
+*** File '* Startup Log *'
+Processing '/etc/joe/jmacsrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/jmacsrc

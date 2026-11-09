@@ -1,0 +1,147 @@
+
+% Add EEGLAB path (change this to your actual EEGLAB path)
+eeglab_path = '/data/u_grossmannr_software/eeglab2023.1/'; % <-- Replace this with the path to your EEGLAB folder
+addpath(eeglab_path);
+brainstorm_path = '/data/hu_grossmannr/MATLAB Add-Ons/Collections/Brainstorm/'
+addpath(brainstorm_path);
+% in the session with sub 17 Mechanical, in block 7 the first trigger (200)
+% was not recorded because the recording started late.
+exception_folder = ''
+exception_path1 = '2025-02-19T121905'
+
+%%
+RAWDIR = getenv("RAWDIR")
+
+% Start EEGLAB
+[ALLEEG, EEG, CURRENTSET, ALLCOM] = eeglab;
+%% 
+% Define the file path (change this to the folder where your .set file is located)
+modality = 'Electrical';
+subjects = 49;
+
+%%
+for subID = 48:subjects
+    if subID < 10
+        ID = ['0' int2str(subID)];
+    else
+        ID = int2str(subID);
+    end
+
+    subject = ['sub-0' ID];
+    session_folder = ['ID' ID '_' modality];    
+    subject_path = fullfile(RAWDIR, subject, session_folder, 'raw_EEG');
+
+    % Get all timestamp-named directories
+    date_folders = dir(subject_path);
+    date_folders = date_folders([date_folders.isdir]); % Keep only directories
+    date_folders = date_folders(~ismember({date_folders.name}, {'.', '..'})); % Remove '.' and '..'    
+    
+    for d = 1:length(date_folders)
+        data_name = date_folders(d).name;
+        full_path = fullfile(RAWDIR, subject, session_folder, 'raw_EEG', ['NeurOne-' data_name]);
+        session_dirs = dir(fullfile(subject_path, data_name));
+        session_dirs = session_dirs([session_dirs.isdir]); % Keep only directories
+        session_dirs = session_dirs(~ismember({session_dirs.name}, {'.', '..'})); % Remove '.' and '..'
+        nr_sessions = length(session_dirs);
+        
+        % Create folder for converted data
+        converted_folder = fullfile(RAWDIR, subject, session_folder, 'converted_EEG');
+        if ~exist(converted_folder, 'dir')
+            mkdir(converted_folder);
+            fprintf('Created folder: %s\n', converted_folder);
+        end
+        
+        % change the maximum number to the number of session that you have in your
+        % folder
+        for i = 1:nr_sessions
+            session = i;
+            % Import the EEG dataset using the NeurOne plugin
+            EEG = pop_readneurone(full_path, i, '');
+            
+            % Check if the dataset was loaded correctly
+            if isempty(EEG)
+                error('Failed to load the dataset');
+            end
+    
+            % Check if the first EEG trigger/event is '200'
+            if ~isempty(EEG.event) && isfield(EEG.event, 'type')
+                
+                % check if there is trigger '200' in the data
+                trigger_found = false;
+                
+                % the start trigger is 200, but for subjects46-52
+                % (electrical) it is 72
+                start_trigger = '200';
+                if (str2double(ID) > 45) && strcmp(modality, 'Electrical')
+                    start_trigger = '72';
+                end 
+
+                % Iterate through all events
+                for j = 1:length(EEG.event)
+                    if strcmp(EEG.event(j).type, start_trigger) 
+                        trigger_found = true;
+                        break; % Exit the loop once the trigger is found
+                    end
+                end
+                
+                if trigger_found | ((subID == 17)&&(strcmp(data_name, exception_path1)))
+                    % Create NT folder if trigger is 200
+                    NT_folder = fullfile(converted_folder, 'NT');
+                    if ~exist(NT_folder, 'dir')
+                        mkdir(NT_folder);
+                        fprintf('Created folder: %s\n', NT_folder);
+                    end
+                    
+                    % Save the dataset inside the NT folder
+                    output_path = NT_folder;
+                else
+                    % Create TA folder for threshold assessments
+                    TA_folder = fullfile(converted_folder, 'TA');
+                    if ~exist(TA_folder, 'dir')
+                        mkdir(TA_folder);
+                        fprintf('Created folder: %s\n', TA_folder);
+                    end
+                    % Default save location if trigger is not 200
+                    output_path = fullfile(converted_folder, 'TA');
+                end
+            else 
+                disp('empty events')
+            end
+            
+            % Save the imported dataset as a new .set file in the same folder
+            output_file_name = sprintf('%s_session%s.set', [data_name string(session)]); % <-- Replace with the desired output file name
+            pop_saveset(EEG, 'filename', output_file_name, 'filepath', output_path);
+            fprintf('Dataset saved as %s in the folder: %s\n', output_file_name, output_path);
+        
+            % for every folder there is one Session.xml file from which we
+            % want to extract the starting time of the recording 
+            sessionxml_file = fullfile(session_dirs(i).folder, 'Session.xml');
+            xmlDoc = xmlread(sessionxml_file);
+            dataSetSession = xmlDoc.getDocumentElement;
+            sessionPhases = dataSetSession.getElementsByTagName('TableSessionPhase');
+            currentSession = sessionPhases.item(i-1); % select current session
+
+            % get start time
+            startTimeNode = currentSession.getElementsByTagName('StartDateTime').item(0);
+            startTime = char(startTimeNode.getTextContent());
+           
+            % get stop time
+            stopTimeNode = currentSession.getElementsByTagName('StopDateTime').item(0);
+            stopTime = char(stopTimeNode.getTextContent());
+            
+            % ... and save it in one separate csv file (one for each
+            % session)  
+            data = table(...
+                string(session), ...         % session_nr
+                string(session_dirs(i).folder), ...             % folder_name
+                string(startTime), ...          % StartDateTime
+                string(stopTime), ...           % StopDateTime 
+                'VariableNames', {'session_nr', 'folder_name', 'StartDateTime', 'StopDateTime'});
+            
+            output_file_name = sprintf('startTime_session_%s_%d.csv', data_name, session);
+            writetable(data, fullfile(output_path, output_file_name));
+            fprintf('Saved: %s\n', output_file_name);
+
+        end
+    end
+end

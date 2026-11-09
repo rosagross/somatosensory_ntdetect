@@ -1,0 +1,535 @@
+\documentclass[11pt,a4paper,onecolumn]{article}
+
+\usepackage{latexsym}      % needed math symbols
+\usepackage{hyperref}
+\hypersetup{
+ colorlinks=true,
+ citecolor=blue,
+ linkcolor=blue,
+ urlcolor=blue,
+ pdfpagemode=UseNone,
+ pdfstartview=FitH}
+\usepackage{graphicx}      % for importing eps figures
+\usepackage{amsmath}       % for advanced math symbols
+\usepackage[affil-it]{authblk} 			% found in preprint bundle package, http://ctan.org/pkg/preprint
+\usepackage[margin=1.97cm]{geometry} % paper and margin formats as set by SPP
+
+\parindent 0.5cm    % paragraphs indent
+
+% authblk style
+\renewcommand\Authfont{\large}
+\renewcommand\Affilfont{\normalsize	\itshape}
+\setlength{\affilsep}{5pt}
+
+% for abstract style
+\makeatletter
+\newbox\abstract@box
+\renewenvironment{abstract}
+  {\global\setbox\abstract@box=\vbox\bgroup
+     \hsize=\textwidth\linewidth=\textwidth
+    \small
+    \begin{center}%
+    {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+    \end{center}%
+    \quotation}
+  {\endquotation\egroup}
+\expandafter\def\expandafter\@maketitle\expandafter{\@maketitle
+  \ifvoid\abstract@box\else\unvbox\abstract@box\if@twocolumn\vskip1.5em\fi\fi}
+\makeatother
+\providecommand{\keywords}[1]{\noindent \mdseries{{Keywords:}} #1}
+\providecommand{\DOI}[1]{\vspace{1\baselineskip}}
+\providecommand{\dateline}[1]{\vspace*{-1\baselineskip}\normalsize #1\vspace*{-1.5\baselineskip}}
+
+% for the figure and tables, captions
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\usepackage{caption}
+\captionsetup[table]{position=above,font={rm,small}}
+\captionsetup[figure]{font={rm,small}}
+
+% for citations formatting style
+\usepackage[numbers,square,sort&compress]{natbib}
+\setlength\bibsep{1pt}
+
+% other packages and macros
+\usepackage{float}
+\usepackage{bm}
+\renewcommand{\vec}[1]{\text{\bfseries #1}}
+
+
+% page numbering
+\pagenumbering{arabic}
+
+\begin{document}
+
+%--------------------------------------------------------------------------
+%  fill in the paper's title, author(s), and corresponding institutions
+%--------------------------------------------------------------------------
+
+\title{Near-threshold somatosensory perception revisited: Endogenous and exogenous neural processes during electrical and naturalistic mechanical stimulation}
+\author[1]{R. Großmann}
+\author[1]{S. Woo}
+\author[1,2,$\dagger$]{T. R. Knösche}
+\author[1,3,4,$\dagger$]{A. Villringer}
+\affil[1]{Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany}
+\affil[2]{Technische Universität Ilmenau, Ilmenau, Germany}
+\affil[3]{Clinic for Cognitive Neurology, University Hospital Leipzig, Leipzig, Germany}
+\affil[4]{Charité University Medicine Berlin, Berlin, Germany}
+\affil[$\dagger$]{These authors contributed equally as shared last authors.}
+
+\date{09.11.2026}
+
+\begin{abstract}
+\noindent
+%---------------------------------------------------------------------------
+%               Include abstract and keywords here
+%---------------------------------------------------------------------------
+
+
+\noindent
+Near-threshold somatosensory stimulation is traditionally applied to investigate the post-stimulus neural correlates of conscious perception as well as ongoing brain activity like alpha oscillations that precede stimulation and modulate perception. Recent findings showed that applying more natural mechanical stimulation instead of the frequently used electric stimulation reveals differences in early post-stimulus perceptual correlates. The precise role of pre-stimulus alpha oscillations require deeper investigation in the electrical modality and is yet fully undiscovered in the mechanical modality. In this study we investigate post-stimulus neural correlates of conscious perception and shine light on how pre-stimulus alpha amplitude and phase coherence relate to electrical and mechanical stimulus perception. Contrary to previous findings, we found no differences between modalities in early perceptual correlates. Both modalities showed robust correlates of stimulus perception likely corresponding to the N80 and N140 components. The effect of stimulus perception was localised in the right contralateral precentral and postcentral gyri, with the left ipsilateral hemisphere contributing shortly afterwards. We found a negative relationship between the pre-stimulus alpha oscillation amplitude and stimulus perception. Moreover, greater pre-stimulus alpha phase coherence coincided with an increase in stimulus perception. There was no evidence that the alpha effects differed between stimulation modalities.
+
+\vspace{0.5em}
+\noindent
+\textit{Key words:} somatosensory perception, alpha oscillations, consciousness, electroencephalography
+
+\DOI{} % placeholder
+\end{abstract}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Introduction}
+\vspace{-7pt}
+
+The identification of neural correlates of somatosensory perception, which reflect the minimal processes giving rise to a conscious experience of the stimulus \cite{koch_neural_2016}, is a long-standing central interest in neuroscience. Near-threshold paradigms provide a valuable approach to investigating these relationships by enabling comparisons between perceived and unperceived stimuli of intensities near the perceptual threshold. Those paradigms require overt responses (e.g., button press, saccades) from subjects to categorize a somatosensory stimulus as perceived. Previous studies applying near-threshold paradigms applying electrical stimulation consistently identified a mid latency component (around 140 ms post stimulus) as a promising correlate for conscious perception in humans \cite{schroderDistillingNeuralCorrelates2022, forschackAlphaBandBrainOscillations2017, forsterERPResponsesReveal2025}, while ruling out the later component P300, assigning it to task relevance \cite{schroderDissociatingPerceptualAwareness2021} and earlier components which seem to reflect physical stimulus properties like intensity \cite{schroderDissociatingPerceptualAwareness2021, forschackDissociableNeuralCorrelates2020}. 
+
+
+More recently, an invasive stereotactic electroencephalography (sEEG) study identified an even earlier neural correlate of near-threshold stimulus perception, with the first significant association between neural activity and perceptual report emerging at approximately 100 ms \cite{albertiniConsciousTactilePerception2025}. The authors attributed this correlate to sustained activity in the parietal operculum, a region encompassing the secondary somatosensory cortex (S2).
+These findings are not restricted to near-threshold paradigms. Using a masking paradigm, Schubert et al. \cite{schubertNowYouFeel2006} likewise found comparable P50 and N80 amplitudes for detected and undetected stimuli, whereas later mid-latency somatosensory evoked potentials, including the P100 and N140, were enhanced for consciously perceived stimuli.
+Until now, almost all studies applying near-threshold somatosensory stimulation focused on electrical stimulation either directly at the median nerve or at the finger of the participants.
+Only very few studies used more the naturalistic mechanical modality for near-threshold stimulation via a piezoelectric or vibrotactile device \cite{soininenSomatosensoryEvokedPotentials1983, jonesNeuralCorrelatesTactile2007, gussoMoreFeelingScalp2021, forsterERPResponsesReveal2025}. 
+The first study comparing mechanical sub- and supra-threshold stimulation found the ERP components P50, P100, N190 for supra-threshold, but not for sub-threshold stimuli \cite{soininenSomatosensoryEvokedPotentials1983}.  Not accounting for stimulus intensity means that they could not test whether the absence of each component was due to perceptual processes or stimulus intensity. Additionally, they did not directly compare to electrical stimulation, which limits their interpretation.
+Jones et al. \cite{jonesNeuralCorrelatesTactile2007} applied a tactile stimulus of 10 ms at the perceptual threshold using a piezoelectric device and observed that the ERP amplitude predicts somatosensory perception starting at 70 ms post-stimulus. In line with previous studies they also found a component at 135 ms post-stimulus to correlate with perception and link it to repeated output from the granular layer in the primary somatosensory cortex (S1). 
+Gusso et al. \cite{gussoMoreFeelingScalp2021}, using vibrotactile stimuli, found that the N80 and N140 components were associated with perceived stimuli, whereas unperceived trials were associated with the P100, with both components also showing associations with the P300. The earliest component associated with perception was the N80, occurring at approximately 75 ms. Recent findings show that the neural correlates of somatosensory perception might differ between mechanical and electrical modalities, particularly in early-to-mid latency processing \cite{forsterERPResponsesReveal2025}. The study compared electrical and mechanical near-threshold stimulation and reported that in the mechanical modality early activity at 50-60 ms was best explained by stimulus detection, while for electrical stimulation, stimulus intensity best explained that activity. Förster and colleagues argue that these differences in processing may stem from receptor specificity since electrical stimulation directly activates peripheral nerve fibers and can recruit different classes of sensory afferents depending on stimulation parameters, which may therefore contribute to an early evoked component even for subthreshold stimuli \cite{forsterERPResponsesReveal2025}. On the other hand, mechanical stimulation primarily engages cutaneous mechanoreceptors, including Meissner's corpuscles and Merkel cell complexes in the superficial skin, as well as deeper Pacini and Ruffini corpuscles \cite{johnsonRolesFunctionsCutaneous2001, abrairaSensoryNeuronsTouch2013}, which might not elicit sufficient activation to elicit a P50 component. Taken together, these findings suggest that the neural processing underlying conscious perception may differ between mechanical and electrical stimulation. 
+
+\vspace{5pt}
+
+However, conscious perception is not determined solely by post-stimulus processing. Pre-stimulus neural activity modulates cortical excitability and sets the stage for subsequent somatosensory perception \cite{stephaniCorticalResponseVariability2022, stephaniNeuralExcitabilitySensory2021}. Until now, the effects of pre-stimulus alpha amplitude and phase on mechanical somatosensory detection, including a direct comparison with electrical stimulation, have not been investigated. 
+The mu rhythm in the somatosensory system (i.e., Rolandic alpha) was found to be modulated by attention \cite{andersonAttentionalModulationSomatosensory2011} and its effect on perception has been extensively studied. Its amplitude was found to correlate with stimulus detection in an inverted U-shape manner (medium amplitude leading to highest detection rates) by some studies \cite{zhangDetectionWeakSomatosensory2010, aiPhasePrestimulusAlpha2014, forschackAlphaBandBrainOscillations2017}, while others found reduced pre-stimulus alpha power for perceived compared to unperceived trials \cite{palvaEarlyNeuralCorrelates2005, weiszPrestimulusOscillatoryPower2014, freyTactileWindowConsciousness2016}. Moreover, medium and high amplitude Rolandic alpha in the pre-stimulus interval induced a reduction in the P50 component, when the stimulated finger was unattended, and an increase of the P50 when it was attended \cite{forschackAlphaBandBrainOscillations2017}.
+
+\vspace{5pt}
+
+Besides the alpha oscillation amplitude, also the alpha phase matters for successful stimulus detection. It was found that the phase of higher amplitude alpha oscillations is predictive for the perception of stimuli \cite{aiPhasePrestimulusAlpha2014}, and that early post-stimulus phase locking predicted stimulus detection \cite{palvaEarlyNeuralCorrelates2005}.
+In visual detection paradigms, the effect of alpha phase was studied early on, revealing that the phase of the alpha wave directly influences perceptual gating of the stimulus \cite{mathewsonSeeNotSee2009}.
+Research suggests that the brain uses alpha oscillations to carefully time stimulus processing through silencing unwanted and selecting wanted activity \cite{klimeschAlphabandOscillationsAttention2012}.
+Ongoing pre-stimulus alpha phase alignment enhances stimulus processing, by increasing the amplitude of the P1 evoked component \cite{fellingerPrestimulusAlphaPhasealignment2011}, typically peaking between 100 and 150 ms post-stimulus, preceding the visual awareness negativity (VAN) \cite{koivistoEarliestElectrophysiologicalCorrelate2008, eklundVisualAwarenessNegativity2018}. Fellinger and colleagues suggest that alpha phase tuning prior to stimulation enables cognitive processing of the incoming information\cite{fellingerPrestimulusAlphaPhasealignment2011}.
+Gruber and colleagues \cite{gruberAlphaPhaseTemporal2014} tested if participants react faster to a stimulus when the alpha phase is aligned to the P1 peak evoked by a visual stimulus, and indeed the reaction times of responding to the target stimulus decreased in comparison to the misaligned trials.
+While most of these findings on temporal prediction through alpha come from the visual domain, it is likely that similar mechanisms exist in the somatosensory domain with respect to the mu rhythm. So far, pre-stimulus preparatory activity has only been examined in electrical stimulation. Rolandic alpha phase alignment and its role in temporal tuning remain unexplored in the somatosensory domain.
+
+
+
+In this study we investigate pre-stimulus and post-stimulus processes related to conscious somatosensory perception in a within-subject design applying both electrical and mechanical stimulation. Specifically, we investigate 1) Post-stimulus neural correlates of conscious perception, 2) the effect of pre-stimulus alpha amplitude on perception, and 3) the effect of pre-stimulus alpha phase on perception.
+
+
+
+
+
+\section*{Methods}
+
+\subsubsection*{Participants and recording setup}
+\vspace{-7pt}
+
+We recruited 40 healthy subjects (25 females), aged between 18 and 40 years to take part in our experiment including electroencephalography (EEG) recordings. The subjects had no history of neurological or psychiatric conditions, brain injuries, or neurosurgical interventions. Their handedness was tested using the Edinburgh-Handedness-Questionnaire  \cite{oldfieldEdinburghHandednessInventory1971} and only right-handed participants were included. Each participant took part in two measurement sessions, one with electrical and one with mechanical stimulation. Two participants could not attend the mechanical session and one participant did not attend the electrical session (resulting in 38 mechanical and 39 electrical sessions). Before analysis we excluded experimental blocks based on bad fits of their psychometric curves (Fig. \ref{fig:1}E). One electrical session was included entirely due to bad psychometric curve fits in every block. Furthermore we excluded one mechanical session due to technical issues and another one due to extensive movement of the mechanically stimulated finger. Eventually, we included 35 mechanical session and 39 electrical sessions in the broad band data analysis. Stricter exclusion criteria apply for the alpha oscillation analysis and source reconstruction (see the respective Methods section). The study was approved by the local ethics committee at the medical faculty of the University of Leipzig.
+
+\subsubsection*{Study design}
+\vspace{-7pt}
+
+The study follows a within-subject design, with the factors \textbf{stimulus modality} and \textbf{intensity}. Besides EEG, we recorded ECG, respiration activity using a respiration belt, and behavioral responses reflecting stimulus detection via button press with the right hand. For each participant, the two sessions were at least one day apart. After every third participant, the order of the sessions was reversed (either mechanical or electrical session first). Each session consisted of 8 experimental blocks. Each block started with a threshold assessment (4-5 min), followed by the main experimental block (9-10 min) in which all possible intensities were presented. The threshold assessment was based on the PSI-marginal adaptive algorithm \cite{prinsPsimarginalAdaptiveMethod2013} followed by 10 trials testing the estimated near-threshold. Manual adjustment of the threshold based on the response distribution and test result was occasionally necessary.
+Each main experimental block included 198 trials, with 7 different intensities, assessed to correspond to 5\%, 20\%, 35\%, 50\%, 65\%, 80\%, 95\% yes-responses, and 18 trials without any stimulation (catch trials). The trials were presented in pseudorandomized order. For every other participant, the assignment of response buttons was swapped. Both the threshold assessment and the experimental block followed the same trial sequence. It started with a jittered inter-trial interval of 0.5-1.5 s showing a black fixation cross, followed by a red fixation cross (stimulus cue). After a fixed time window, the stimulus  was delivered (for more details see next paragraph). The response window started 0.5 s post-stimulus onset and lasted for 1.5 seconds. Participants reported perception of the stimulus by pressing the corresponding button with either the right index or middle finger.
+\subsubsection*{Stimulation method}\label{Stimulation method}
+\vspace{-7pt}
+
+The electrical stimulation was executed using electrodes that are controlled via a medically certified constant current generator (Digitimer DS5). The mechanical stimulation was executed via small plastic pins, stimulating the finger from below, controlled by a piezoelectric stimulator (by QuaeroSys). The mechanical stimulation lasted maximally 10 ms, whereas the electrical stimulus lasted 0.2 ms.
+Due to a technical issue, the visual preparation cue in the mechanical modality was presented 36 ms earlier than in the electrical condition. Therefore, the cue-stimulus interval was 436 ms long in the mechanical condition, and 400 ms in the electrical condition. Participants wore earplugs and white noise was played during all experimental blocks for both modalities due to the sound of the piezoelectric stimulation. We asked participants if they could hear the piezostimulation device and increased the volume of the white noise until they confirmed that they could no longer hear it. All stimulations were applied on the left index finger.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig01.png}
+  \caption{A) Trial sequence of the experiment applying either electrical (B left) or mechanical (B right) stimulation depending on the experimental session. C) Structure of one experimental session, entailing 8 experimental blocks. D) Averaged behavioral responses by intensity and stimulation modality. E) Sigmoidal fits (r-squared) computed from response curves by subject and experimental block. The red dashed line indicates the preregistered cut-off value of 0.6.}
+  \label{fig:1}
+\end{figure}
+
+\subsection*{Data pre-processing and analysis}
+\vspace{-7pt}
+
+\subsubsection*{EEG pre-processing}
+\vspace{-7pt}
+
+We band-pass filtered the data (0.1-100 Hz for raw data, 1-40 Hz for epoched data), downsampled to 500Hz, applied detrending, and re-referenced to average. Bad channels were first identified based on power spectral density (PSD) and subsequently using the RANSAC algorithm \cite{jasAutorejectAutomatedArtifact2017}. Data were epoched around stimulus onset from -900 ms to 300 ms with respect to stimulus onset, while ECG and respiration signals were filtered separately. Independent component analysis (ICA) was used to remove eye movement, cardiac, muscle, and line noise artifacts. The ICA was fitted (infomax algorithm, number of components set to the number explaining 99\% of the variance) separately for each experimental block on the epoched data after band-pass filtering at 1-40 Hz. Components were marked for removal if they correlated with the vertical EOG or ECG channel, or if the ICLabel classifier \cite{pion-tonachini_iclabel_2019} assigned them to any class other than brain or other. The correction was applied to the same 1-40 Hz filtered epochs, which were then used for all subsequent analyses. Finally, bad epochs were rejected using amplitude thresholds of 90 $\mu$V for EEG channels and 250 $\mu$V for the EOG channel. Baseline correction was applied for broad band analyses using a 100 ms long baseline starting at 550 ms pre-stimulus. We fitted sigmoidal curves to the behavioral data per block to assess their quality. Based on results from pilot experiments we excluded blocks with r-squared$<$0.6. Furthermore, we excluded trials applying the lowest and highest intensity level from the analysis, because there were only 15 trials of those intensities per experimental block (and due to the extreme intensity even fewer trials would be left per detection response). 
+Because the visual cue elicits an event-related potential which dominates neural activity in the pre-stimulus interval, we used catch trials to subtract the visual ERP from each trial. Due to the low intensity of the stimuli, no omission response post-stimulus was expected which could have leaked into the pre-stimulus interval. For the pre-stimulus alpha analysis, it was important that the visual signal was removed well. This required a good signal-to-noise ratio (SNR) in the pre-stimulus window, because the visual evoked response was subtracted as a per subject average signal (see Fig. \ref{fig:sup_1}). We obtained the SNR by computing the root-mean-square (RMS) of the baseline signal (100 ms pre cue) and the pre-stimulus signal (400 ms post cue) of the visual ERP elicited by the visual stimulus cue for both modalities. Therefore, before the pre-stimulus alpha analysis we excluded the mechanical sessions of three subjects and the electrical sessions of three subjects (of which one subject failed the criterion for both sessions) because their SNR was below 1.5. at visual electrode O2. The SNR did not differ significantly between modalities. Two electrical sessions were excluded from the ITPC analysis. In these sessions the cue-stimulus interval was 8 ms longer than intended (technical fault), so their trials were not aligned in time with the other sessions.
+
+\subsubsection*{Statistical analysis of broad band data}
+\vspace{-7pt}
+
+The goal was to investigate the effect of stimulus modality, detection response, stimulus intensity and their interaction on the neural activity during pre- and post-stimulus intervals.
+Following previous studies, we first selected somatosensory channels CP4 and C6. We performed temporal cluster-based analysis
+by fitting mixed effects models. The fixed effect factors were \textit{modality}, \textit{detection response}, and \textit{stimulus intensity} (centred). The random-effects structure comprised a by-subject random intercept and a by-subject random slope for (centred) experimental block, to account for between-subject differences in overall amplitude and for changes across blocks such as fatigue or variability in threshold assessment. Additionally, we tested the mechanical stimulation separately to investigate if the weight of the finger laying on the mechanical stimulation device had an effect on the ERP amplitude (by introducing \textit{finger force} as extra effect). %TODO: report the results of that!
+
+In addition to the somatosensory electrodes we were interested in effects across the whole brain. Especially preparation for the stimulus might go beyond activation of contralateral somatosensory cortex. To correct for multiple comparisons arising from testing many electrode locations, we performed a spatio-temporal cluster-based permutation test. 
+We used 2000 permutations over the interval -550 to 300 ms relative to stimulus onset, with clusters formed across the channel-time adjacency and thresholded two-sided at $p < .05$. The model comprised 40 participants contributing 74 sessions (35 mechanical, 39 electrical).
+The factors intensity level and detection are highly interdependent, since increasing intensity levels by design lead to increased probability of detection. To investigate the co-linearity of the two factors in predicting the ERP amplitude, we computed the variance inflation of all factors in the model. At electrode C6, in the time window 140-150ms the variance inflation was below 1.2 for all of the factors (intensity level: 1.0989, detection response: 1.102245, modality: 1.003261) indicating low shared variance of all the factors. The correlation between intensity level and response was 0.3. For both cluster-based permutation algorithms we relied on the Unfold  \cite{ehinger_unfold_2019} and ClusterDepth \cite{benedikt_ehinger_2026_18374557} toolbox.
+
+
+\subsubsection*{Source reconstruction of the cluster-permutation $z$ maps}
+\vspace{-7pt}
+\label{sourcerec_zmaps}
+To visualise the cortical distribution of sensor-level effects, the group-level $z$-value topographies associated with significant clusters were projected into source space using individual minimum-norm inverse operators. Only model coefficients that carried at least one significant cluster were reconstructed. Source reconstruction required an individual anatomy, so only participants with a T1 scan were included, leaving 57 sessions (28 mechanical, 29 electrical) from 33 participants, 24 of whom contributed both sessions.
+For each session, an individual forward solution was computed using a three-layer boundary element model (BEM) derived from the FreeSurfer segmentation \cite{segonne_hybrid_2004, dale_cortical_1999, fischl_freesurfer_2012}.
+We defined the cortical source space using a ico-5 mesh (subdividing an icosahedron five times and projecting its vertices onto the cortical surface), co-registered the session-specific digitized EEG electrode positions to the T1 MRI image, and constrained the source vertex orientations to normal to the cortical surface. The source-space resolution comprised 10,242 candidate source locations per hemisphere. A noise covariance matrix was estimated from the pre-cue baseline window (-550 to -450 ms relative to stimulus onset) of the cleaned epochs of that session and regularised. The forward solution and noise covariance matrix were then used to construct a fixed-orientation minimum-norm estimate (MNE) inverse operator using the MNE-Python package \cite{gramfort_mne_2014}. 
+No depth weighting was applied because we expect mainly superficial sources to contribute to the effects (specifically in the somatosensory, frontal and parietal cortex) \cite{caullerNeuralBasisBehaviorally1991, caullerLayerPrimarySensory1995, allisonHumanCorticalPotentials1989, allisonRelationshipHumanLonglatency1992}.
+The inverse operator was applied to the channel-by-time matrix of $z$ values, with the regularisation parameter set to $\lambda^2 = 1/9$. The resulting source estimate was morphed to the fsaverage surface (ico-5, identical to the resolution of individual source space) and averaged across the 57 sessions, yielding one group source estimate per coefficient.
+Because the sign of a fixed-orientation minimum-norm estimate follows the cortical surface normal and therefore flips between opposing banks of a sulcus, the maps are displayed as absolute source amplitude in arbitrary units, on a single scale shared across coefficients and latencies. To describe where the strongest sources lie, we selected at each latency of interest the 1\% of vertices with the largest absolute source amplitude (205 of 20,484 fsaverage vertices, both hemispheres pooled) and report the share of these vertices in each hemisphere (the right hemisphere is contralateral to the stimulated hand) and in each region of the Desikan-Killiany parcellation, separately for the left and the right hemisphere.
+
+\subsubsection*{Frequency band specific analysis}
+\vspace{-7pt}
+
+To investigate pre-stimulus activity in the alpha frequency band we first cropped the broad band epochs to -800 ms to 0 ms with respect to stimulus onset, so that no post-stimulus data entered the filter. The cropped epoch was mirror padded on both sides with one full epoch length, and filtered to the subject-individual alpha frequency peak (within 8 to 14 Hz) at electrode CP4 (estimated via Welch PSD over a window from -800 to -100 ms) $\pm$ 2 Hz using a zero-phase FIR filter. The padding was removed afterwards. A surface Laplacian (current source density) transform was applied prior to all channel-level analyses to improve isolation of local activity. We computed the analytic signal via the Hilbert transform (applying mirror padding of three 8 Hz cycles), yielding trial-wise instantaneous envelope and phase. 
+For further analysis, the alpha band trace was used only until 100 ms pre-stimulus to prevent keeping effects of potential leakage from filtering. The envelope analyses were conducted over the pre-stimulus window (-400 to -100 ms) at the contralateral somatosensory electrodes CP4 and C4 and, as a control site outside somatosensory cortex, the occipital electrode O2. Pre-stimulus alpha envelope was compared between detected and undetected trials using paired t-tests on the subject-wise means. To test for a non-linear (inverted-U) relationship between alpha amplitude and detection, trial-wise mean envelope amplitude was sorted into 10 equiprobable bins per subject using quantile binning; a quadratic polynomial was fitted to each subject's bin-wise detection rate, and the quadratic coefficient was tested against zero using a one-sided t-test (H$_1$: coefficient $< 0$). To compare the modalities directly, a linear mixed model, envelope $\sim$ response $\times$ modality $+$ (1 $|$ subject), with centred predictors was fitted per channel to the subject-level mean envelope; the p-value of each effect was FDR-corrected across the three channels.
+Phase locking was quantified as debiased squared inter-trial phase coherence (dITPC) at electrodes CP4 and CPz. At every time point within a window of -750 to -100 ms, the ITPC is the length of the mean resultant vector of the unit-normalised complex analytic signal across trials, computed separately for perceived and unperceived trials. The squared resultant length is biased upwards when few trials are available, which would inflate the ITPC of the condition with fewer trials. We therefore corrected the computed squared length for the number of trials $N$ of the condition (see equation \ref{eq:debiased_itpc}). The dITPC can be negative after the upwards bias was removed by the correction. 
+
+\begin{equation}
+	\label{eq:debiased_itpc}
+	\mathrm{dITPC}
+	=
+	\frac{
+		N \left|
+		\frac{1}{N}\sum_{k=1}^{N} e^{i\phi_k}
+		\right|^{2} - 1
+	}{N-1}
+\end{equation}
+
+Even though the ERP evoked by the visual cue was subtracted using catch trials, there might still be leftover time-locked evoked response, which by itself raises the phase coherence across trials, so a dITPC difference between perceived and unperceived trials could reflect the ERP instead of the ongoing alpha phase. We therefore removed the ERP contribution from the dITPC time course before testing. The ERP was computed from the same epochs without the band-pass (surface Laplacian, channel selection, pre-cue baseline -550 to -450 ms) as the trial average per response, and its absolute value $|\mathrm{ERP}(t)|$ served as regressor. Per subject, modality and channel, one ordinary least squares fit $\mathrm{dITPC}(t) = a + b\,|\mathrm{ERP}(t)|$ was computed over the time points of perceived and unperceived trials stacked, so that both responses share the slope $b$. The cleaned time course is
+
+\begin{equation}
+	\label{eq:erp_regression}
+	\mathrm{dITPC}_\mathrm{clean}(t) = \mathrm{dITPC}(t) - b\,(|\mathrm{ERP}(t)| - \overline{|\mathrm{ERP}|})
+\end{equation}
+ 
+ , which removes the ERP term but keeps the dITPC level. All dITPC statistics below were computed on the cleaned dITPC.
+
+Mean dITPC in the post-cue window (from cue-onset until 300 ms after cue-onset) was compared between perceived and unperceived trials using paired t-tests. To test whether the difference emerged only after the cue, the Yes-No dITPC difference in that post-cue window was additionally compared against the same difference in a pre-cue window (300 ms before cue-onset).  To estimate the phase specificity independent of stimulus perception, we conducted a Rayleigh test within each modality on the phase at -100 ms, averaged within each subject. Additionally, we conducted a Rayleigh test within-subject to estimate their phase specificity across trials. To compare the post-cue dITPC effect between modalities, we fitted a linear mixed model per channel, dITPC $\sim$ response $\times$ modality $+$ (1 $|$ subject), on the subject-level post-cue mean dITPC, with response (perceived $= +0.5$) and modality (mechanical $= +0.5$) centred, so that the main effects are averaged over the other factor. The p-value of each effect was FDR-corrected across the two channels. Because phase measures depend on the exact timing between cue and stimulus, the electrical sessions of two subjects, in which the cue-stimulus interval was consistently shifted by about 8 ms relative to all other electrical sessions due to a technical issue, were additionally excluded from the dITPC analysis, leaving 34 electrical and 32 mechanical sessions.
+All envelope and dITPC tests were corrected for multiple comparisons across the channels tested in that analysis, within each modality, using the Benjamini-Hochberg false discovery rate (FDR) procedure. For the topographic maps of the Yes-No envelope difference, the difference was averaged across subjects first and the peak channel and latency were then identified within -400 to -100 ms.
+
+\subsubsection*{Analysing the relationship between alpha effects, the P50 and the negative preparation component}
+\vspace{-7pt}
+
+To relate the pre-stimulus alpha measures to early stimulus processing we quantified the P50 at the contralateral somatosensory electrode CP4 on the broad band epochs. The epochs were baseline corrected (-550 to -450 ms). The P50 amplitude of each single trial was defined as the mean over a fixed time window, 34-56 ms for electrical and 44-66 ms for mechanical stimulation (the P50 was found to peak later in response to mechanical stimulation). Like before, the alpha envelope trace was cut at -100 ms to prevent keeping effects of potential leakage from filtering in the analysis. The effect of alpha amplitude on the P50 was assessed by sorting the trial-wise pre-stimulus alpha envelope at CP4 into eight equiprobable bins within each session, so that between-subject differences in overall alpha amplitude cannot drive the binning. Bin-wise mean P50 values were averaged within subjects first and only then across subject. As for the dITPC analysis, the electrical sessions of two subjects were excluded from these P50 analyses because of the shifted cue-stimulus interval and pre-stimulus SNR criteria, leaving 34 electrical and 32 mechanical sessions. A straight line was fitted per session across the eight bins and the resulting slopes were tested against zero with a two-sided one-sample t-test. 
+To visualize the relationship between the alpha phase and the P50 amplitude, the instantaneous alpha phase at CP4 was read out at 100 ms before stimulation and sorted into 16 bins of equal angular width spanning the full circle. For each phase bin the P50 amplitude was computed. Within-subject averaging was applied for the phase circular mean and P50 arithmetic mean.
+We further compared the topographies of the pre-stimulus alpha (trial-averaged Hilbert envelope at 100 ms before stimulation) and P50 (at 42 ms and 62 ms respectively) of electrical and mechanical stimulation to test if they are likely to share their neural generator.
+A Laplacian was applied to both signals before computing the averages. We normalized each map by centering it, then dividing it by the root mean square of the centered map.   
+We then applied the TANOVA method to statistically test differences in scalp topography \cite{murrayTopographicERPAnalyses2008}. In a second comparison, we computed per session the perceived minus unperceived difference map of the alpha envelope (-100 ms) and of the P50 (42 ms and 62 ms), normalized each map by its global field power, and tested with the same TANOVA (5000 sign-flip permutations) whether the two difference topographies differ in shape. 
+
+Finally, we quantified the slow negative preparation potential starting shortly before stimulus onset and tested its relationship with the dITPC. 
+The negative potential peaked centrally and was therefore measured at the central electrode CPz, after low-pass filtering the broad band epochs at 6 Hz with a zero-phase FIR filter and using the same pre-cue baseline. 
+We took the most negative sample of the trial average within -200 to 100 ms separately for perceived and unperceived trials. 
+The dITPC was summarised per session and detection response as the maximum of the dITPC time course at CP4 within the post-cue window (-400 to -100 ms). 
+We then correlated the dITPC with the amplitude of the negative preparation component across sessions using Pearson correlations, separately for each modality and detection response, and FDR-corrected the resulting four tests. 
+
+\subsubsection*{Source reconstruction of pre-stimulus alpha}
+\vspace{-7pt}
+
+To unravel the origin of alpha pre-stimulus activity in mechanical and electrical somatosensory perception, source reconstruction was performed on the same narrow band filtered epochs that were used for the channel specific pre-stimulus alpha analysis (but before the surface Laplacian transform) with the subject-specific alpha peak frequency.
+As for the source reconstruction of the $z$-maps, only participants with an individual anatomy were included, sessions failing the SNR criterion, and unintended trigger delay were excluded, leaving 52 sessions (26 electrical, 26 mechanical), 20 of whom contributed both sessions.
+The forward and inverse modelling approach was the same as in the previously described source reconstruction of the $z$-maps. The noise covariance matrices were estimated from the pre-stimulus baseline window (-800 ms to -450 ms with respect to stimulus onset, long enough to capture oscillations in alpha frequency). The MNE inverse operator was applied to individual epochs, yielding trial-wise source time courses across the cortical surface, necessary for computing the dITPC. 
+Prior to the Hilbert transform, each source time series was mirror-padded by three cycles at the lower alpha bound (8 Hz; $\approx$375 ms) to suppress edge artifacts. 
+Per source vertex we computed the Hilbert transform and obtained the envelope and the phase per trial. The envelope was averaged across trials per subject and the dITPC was computed as described in equation \ref{eq:debiased_itpc}.
+Both measures were computed separately for perceived (``Yes'') and unperceived (``No'') trials. Individual source estimates were morphed to the fsaverage common surface and averaged across subjects. 
+Yes-No difference maps were computed for both envelope and dITPC.
+Cluster-based permutation tests (2000 permutations, corrected at $p < .05$) were performed on the difference maps for each modality (over a time window of -750 ms to -100 ms relative to stimulus onset) to obtain only statistically relevant clusters.
+
+
+\section*{Results}
+
+\subsubsection*{Behavioural Results}
+\vspace{-7pt}
+The experiment is designed such that the delivered intensities are tuned to the individual psychometric curve. Behavioral results confirmed the expected increase of detection upon an increase of stimulus intensity (Fig. \ref{fig:1}D).
+Detection response (perceived versus unperceived) was modelled using mixed-effects logistic regression with subject-level random intercepts and block as a random slope. Across both modalities, as planned by the experiment design stimulus intensity was the dominant predictor of detection ($\beta = 0.52$, SE $= 0.009$, z $= 57.97$, p $< .001$). Mechanical stimulation showed an overall higher detection rate than electrical stimulation ($\beta = 0.28$, SE $= 0.018$, z $= 15.27$, p $< .001$), but was still clearly at near-threshold intensity. A significant modality-by-intensity interaction ($\beta = -0.10$, SE $= 0.013$, z $= -8.08$, p $< .001$) indicated that the psychometric slope was steeper for electrical than for mechanical stimulation. We fitted a modality specific model to include the weight of the finger resting on the piezostimulator as an additional predictor. A higher weight of the finger might facilitate perception, as the finger is closer to the stimulation pin. This assumption was confirmed by our statistical analysis. Force quantiles explained additional variance in detection beyond the intensity level ($\beta = 0.10$, SE $= 0.018$, z $= 5.61$, p $< .001$), with higher force leading to increased perception.
+
+\subsubsection*{Broad band single channel analysis}
+Based on previous literature we chose to investigate the ERP traces of the electrodes CP4 and C6, which are placed above the somatosensory cortices.
+For each channel we fitted the same joint linear mixed model the whole-scalp analysis at every time point and tested the coefficients with a temporal cluster-mass permutation test (two-sided, 2000 permutations, cluster-forming threshold $z = 1.96$, corrected at $p < .05$). Significant time windows are marked below the ERP traces in Fig.~\ref{fig:2_sensor} A and B. Table~\ref{tab:clusters_single_channel} lists all significant clusters at CP4 and C6 for every model coefficient, with their statistics. At both channels, detection response was associated with amplitude differences before the stimulus and with a strong post-stimulus negativity for perceived trials with two peaks in that window (often referred to as the N80 and the N140 component), which was strongest at C6.
+The modality effect differed at both channels before and after the stimulus.
+Stimulus intensity yielded clusters only at CP4, one of them covering the latency of the P50 (see Fig.~\ref{fig:2_sensor}C for the intensity effect).
+Modality and detection response interacted before the stimulus at CP4 and late in the epoch at C6. Intensity level and detection interacted at C6 in a mid latency time window during the N140 peak.
+
+\begin{table}[H]
+  \centering
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \caption{Significant clusters of the single-channel temporal cluster-based permutation tests at CP4 and C6. At each channel the linear mixed model was fitted at every time point across both modalities over the interval $-550$ to $300$~ms relative to stimulus onset. Two-sided cluster-mass permutation test along the time axis, 2000 permutations, cluster-forming threshold $z = 1.96$, corrected at $p < .05$. The mass is the sum of $z$ values within the cluster. The peak is the sample of largest $|z|$ inside the cluster, representing the effect size. Clusters are listed per factor in order of decreasing $|$mass$|$.}
+  \label{tab:clusters_single_channel}
+  \begin{tabular}{llrrrcr}
+    \toprule
+    Channel & Factor & Mass & Peak $z$ & Peak $t$ & Time window & $p$ \\
+     &  &  &  & (ms) & (ms) &  \\
+    \midrule
+    \input{tables/single_channel_clusters}
+
+  \end{tabular}
+\end{table}
+
+\vspace{-7pt}
+
+\subsubsection*{Broad band effects of stimulus detection and intensity pre- and post-stimulus}
+\vspace{-7pt}
+
+To reveal the topographies of the modality, detection response, and intensity effects we performed a spatiotemporal cluster-based permutation test (two-sided, 2000 permutations, corrected at $p < .05$) (see Fig. \ref{fig:2_sensor}D and Table \ref{tab:clusters} for the complete statistical results).
+Significant clusters emerged for the factors detection response and modality, and for their interaction; stimulus intensity did not yield any cluster. All significant clusters are listed in Table~\ref{tab:clusters}.
+
+The factor detection response (perceived vs. unperceived) revealed four clusters in total, spanning time points before and after the stimulus onset. Already in the cue-to-stimulus interval a negative cluster over 24 frontal electrodes was present (peak $z = -5.26$ at FPz at -276 ms, $p < .0005$). After stimulus onset the effect was far stronger and at some times spanned all sensors. A negative cluster covered all 62 electrodes with a peak at C4 at 138 ms ($z = -12.87$, $p < .0005$) together with a positive cluster over 60 electrodes with a peak at FPz at 154 ms ($z = 9.26$, $p < .0005$). Since both peak at nearly the same latency but with opposite polarity and complementary topographies, they might represent the same neural process rather than two independent effects near their peak latencies. A fourth, later positive cluster comprised 27 centro-parietal and occipital electrodes between 240 and 300 ms (peak $z = 11.34$ at CP2 at 294 ms, $p < .0005$).
+
+The factor modality (mechanical vs. electrical) produced twelve clusters that together covered the entire tested interval, from -474 ms up to the end of the epoch. The two strongest peaks were again of opposite polarity and centred on the early somatosensory response: a negative cluster over 53 electrodes with a peak at CP2 at 98 ms ($z = -7.67$, $p < .0005$) and a positive cluster over 57 electrodes with a peak at C4 at 128 ms ($z = 8.03$, $p < .0005$). Modality also differed within the pre-stimulus interval, with a widespread negative cluster from -474 to -212 ms (the cluster with the largest mass; 61 channels, peak $z = -5.73$ at C6 at -326 ms, $p < .0005$) and a positive cluster from -218 to -80 ms (38 channels, peak $z = 5.19$ at C4 at -98 ms, $p < .0005$). Further clusters of opposite polarity surrounded stimulus onset, from -56 to 66 ms (positive, 56 channels, peak $z = 5.93$ at O2 at -46 ms) and from -86 to 66 ms (negative, 58 channels, peak $z = -5.84$ at FT10 at -4 ms), and late clusters at the end of the epoch from 194 to 300 ms (positive, 24 channels, peak $z = 7.00$ at P8 at 246 ms, $p = .002$) and from 224 to 300 ms (negative, 33 channels, peak $z = -6.14$ at F2 at 252 ms, $p < .0005$). The remaining pre-stimulus clusters were smaller (Table~\ref{tab:clusters}).
+
+The interaction between modality and detection response reached significance only late and weakly, in one positive cluster over 25 right fronto-central electrodes from 192 to 300 ms, which extended to the end of the epoch (peak $z = 5.44$ at C4 at 296 ms, $p = .016$). The detection effect is therefore largely comparable across the two modalities within the tested window, and diverges only in the late post-stimulus interval.
+Stimulus intensity yielded no significant cluster, and neither did its interaction with detection response or its interaction with modality.
+
+\begin{table}[H]
+  \centering
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \caption{Significant clusters of the full spatio-temporal cluster-based permutation test. The linear mixed model was fitted across both modalities (40 participants, 74 sessions: 35 mechanical, 39 electrical) over the interval $-550$ to $300$~ms relative to stimulus onset on all 62 channels. Two-sided cluster-mass permutation test, 2000 permutations, cluster-forming threshold $z = 1.96$, corrected at $p < .05$. Mass is the sum of $z$ values within the cluster; its sign gives the cluster's polarity. The peak is the sample of largest $|z|$ inside the cluster; time window and number of channels give its temporal and spatial extent. Clusters are listed per factor in order of decreasing $|$mass$|$.}
+  \label{tab:clusters}
+  \begin{tabular}{lrrcrcrc}
+    \toprule
+    Factor & Mass & Peak $z$ & Peak ch. & Peak $t$ & Time window & Ch. & $p$ \\
+     &  &  &  & (ms) & (ms) & ($n$) &  \\
+    \midrule
+    \input{tables/full_channel_clusters}
+
+  \end{tabular}
+\end{table}
+
+
+\subsubsection*{Neural origin of significant cluster topographies}
+We performed source reconstruction of the $z$ value topographies for visual interpretation of significant clusters (see Methods). We projected the group-level $z$ topography onto the cortical surface, averaged over the 57 sessions with an available T1 scan (28 mechanical, 29 electrical), and displayed it as absolute source amplitude (Fig.~\ref{fig:2_source}). For detection response, the estimate in the cue interval, at the peak of the negative frontal sensor cluster (-276 ms; 24 electrodes, -378 to -236 ms), was mainly left-hemispheric (74\% left, 26\% right) and lay in the left postcentral (28\%) and precentral gyrus (27\%) and the right postcentral gyrus (16\%). The strongest source vertices of this frontal sensor cluster were therefore sensorimotor and not frontal. The estimate was focal and clearly lateralised at the peak of the largest and strongest post-stimulus cluster (138 ms): all of the strongest 1\% of vertices lay in the right hemisphere, contralateral to the stimulated hand, and were concentrated in the right precentral (39\%) and postcentral gyrus (37\%), extending into the right supramarginal gyrus (11\%). At the peak of the positive cluster (154 ms), the opposite pole of the same dipolar sensor field, 59\% of the vertices were left-hemispheric (left postcentral 27\%, left supramarginal 9\%) and 41\% right-hemispheric (right postcentral 9\%, right superior temporal 9\%). At 294 ms the focus returned to the right hemisphere (60\% right, right precentral 40\%, right postcentral 20\%; left postcentral 22\%, left precentral 17\%). 
+Immediately around the stimulus onset we observed a particular centred topography in the significant clusters (though there is no cluster peak at these latencies). At stimulus onset we found a bilateral and centred on the pre- and postcentral gyri (57\% right and 43\% left; right precentral 33\%, left precentral 22\%, right postcentral 20\%). At 50 ms the focus was on the left hemisphere (74\% left-hemispheric; left precentral 42\%, left postcentral 29\%; 26\% right, right postcentral 13\%). Both place the strongest vertices in the pre- and postcentral gyri, but the right-hemispheric share is larger at 0 ms (57\%) than at 50 ms (26\%).
+
+For modality we reconstructed the sources for the 5 clusters that showing the peaks with the highest z-values. Before the stimulus (-446 ms) the strongest vertices were mostly right-hemispheric (86\% right, 14\% left) and lay in the right temporal cortex (middle temporal 20\%, inferior temporal 10\%) and right inferior frontal cortex (pars triangularis 10\%), with the left hemisphere contributing the left lateral occipital gyrus (10\%). At the early evoked response (98 ms) the modality effect engaged the same contralateral sensorimotor region as in the detection effect (86\% right-hemispheric, right postcentral 30\%, right precentral 29\%, right superior parietal 12\%), with a smaller left-hemispheric part (14\%) in the left superior temporal gyrus (9\%). The effect was more widely distributed than the detection effect and shifted its focus over time. At 128 ms it was still right lateralised but weaker, with 60\% right and 40\% left hemispheric activation (right postcentral 23\%, right rostral middle frontal 11\%, left postcentral 10\%, left precentral 9\%, left superior frontal 8\%). After 200 ms the focus moved away from sensorimotor cortex towards frontal cortex in both hemispheres (246 ms: 55\% right and 45\% left; left caudal middle frontal 21\%, left precentral 17\%, right middle temporal 16\%, right superior frontal 11\%; 252 ms: 75\% right and 25\% left; left caudal middle frontal 13\%, right superior frontal 12\%, right rostral middle frontal 11\%, right pars orbitalis 11\%, right caudal middle frontal 11\%). 
+
+In summary, the effect of stimulus detection showed a focal contralateral sensorimotor generator around the post-stimulus peak at 138 ms, with an additional left-hemispheric focus shortly afterwards, whereas the modality effect reflects a broader network that involves right temporal and inferior frontal cortex before the stimulus and frontal cortex late in the epoch. The modality $\times$ detection response interaction (296 ms) was left-lateralised (70\% left, 30\% right) and spread over several regions (left precentral 14\%, right postcentral 12\%, left rostral middle frontal 11\%, right precentral 9\%, left postcentral 9\%).
+
+\vspace{-7pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig02_sensor.png}
+  \caption{Analysis of the effect of detection response (perceived vs. unperceived), intensity level and modality on the event-related potential amplitude. Single channel analysis at A) CP4 and B) C6. In both A) and B) the time course of the measured ERP per modality and detection response is displayed. Colored bars indicate time points in significant clusters, according to the temporal cluster-based permutation analysis. Panel C) shows the effect of intensity on mean ERP amplitude in the time window 50-60ms post-stimulation at electrode CP4 (choice of time window and electrode based on \cite{forschackDissociableNeuralCorrelates2020, forsterERPResponsesReveal2025, schroderDissociatingPerceptualAwareness2021}). D) Result of the full-electrode cluster-based permutation test displaying one row per model coefficient. Electrodes highlighted with a black circle belong to a cluster that indicates a significant difference for the specified factor. Topographies with time points highlighted in bold directly stem from cluster peak latencies, while non-highlighted ones are freely chosen latencies for demonstration. The interaction between response and intensity did not show significant differences and is therefore not depicted here. The factor intensity level did not show any significant clusters against the single channel analysis, which is why their z-value topography is still depicted.}
+  \label{fig:2_sensor}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig02_source.png}
+  \caption{Source reconstruction of the group-level $z$ value topographies of the three coefficients carrying the strongest significant sensor-level clusters, detection response (top) and modality (middle), modality x detection response (bottom). Each panel shows both hemispheres in lateral (upper row) and medial (lower row) view, with the left hemisphere on the left; latencies are given above the columns and include the peaks of the clusters with the highest z-values of each factor (98 ms for modality, 138 ms for detection response) as plotted in sensor space in Fig. \ref{fig:2_sensor}D. Colour codes the absolute source amplitude on a scale shared by both factors and all latencies. Time points highlighted in bold directly stem from cluster peak latencies, while non-highlighted ones are freely chosen latencies for demonstration. Note that the maps are descriptive and were not tested statistically in source space.}
+  \label{fig:2_source}
+\end{figure}
+
+
+\subsubsection*{Alpha power in mechanical and electrical stimulation affects stimulus detection}
+\vspace{-7pt}
+Pre-stimulus alpha envelope was extracted from the surface-Laplacian transformed epochs over the pre-stimulus window (-400 to -100 ms) and sorted into ten equiprobable bins per subject (36 subjects in the electrical and 32 in the mechanical modality after the SNR-based exclusion). The quadratic coefficient of a second-order polynomial fitted to each subject's bin-wise detection rate was negative at every electrode. Testing this coefficient one-sided against zero (H$_1$: $a < 0$) and FDR-correcting across the three channels within each modality, the effect was significant in the electrical modality at C4 ($a = -1.26 \times 10^{-3}$, $p_\mathrm{FDR} = .009$), but not at O2 ($a = -6.6 \times 10^{-4}$, $p_\mathrm{FDR} = .113$) or CP4 ($a = -4.7 \times 10^{-4}$, $p_\mathrm{FDR} = .158$). In the mechanical modality it was significant at O2 ($a = -1.26 \times 10^{-3}$, $p_\mathrm{FDR} = .021$), but did not survive the correction at the somatosensory electrodes (C4: $a = -7.9 \times 10^{-4}$, $p = .050$, $p_\mathrm{FDR} = .057$; CP4: $a = -7.1 \times 10^{-4}$, $p_\mathrm{FDR} = .057$). The inverted-U relationship is thus significant in the electrical modality only at the somatosensory electrode C4, and in the mechanical modality only at the occipital control site.
+
+We compared the mean pre-stimulus alpha envelope directly between perceived and unperceived trials for each modality separately (Fig.~\ref{fig:3}B). Alpha envelope was lower before detected than before undetected trials at both contralateral somatosensory electrodes in the electrical modality (CP4: $t(35) = -3.28$, $p_\mathrm{FDR} = .004$; C4: $t(35) = -3.60$, $p_\mathrm{FDR} = .003$). In the mechanical modality the difference went in the same direction but was not significant (C4: $t(31) = -2.23$, $p_\mathrm{FDR} = .100$; CP4: $t(31) = -1.51$, $p_\mathrm{FDR} = .21$). At the occipital electrode O2 the mean envelope did not differ between perceived and unperceived trials in either modality (electrical: $t(35) = -1.35$, $p_\mathrm{FDR} = .19$; mechanical: $t(31) = -0.21$, $p_\mathrm{FDR} = .83$). 
+
+To compare the modalities directly, we fitted a linear mixed model to the subject-level envelope. At C4 the envelope was lower for detected trials across both modalities ($\beta = -0.021$, SE $= 0.008$, $z = -2.71$, $p_\mathrm{FDR} = .020$). At CP4 this effect did not survive correction ($\beta = -0.020$, SE $= 0.011$, $z = -1.77$, $p_\mathrm{FDR} = .115$), and at O2 there was none ($p_\mathrm{FDR} = .73$). Neither the main effect of modality nor the response $\times$ modality interaction was significant at any electrode (all $p_\mathrm{FDR} \geq .41$), so the weaker mechanical effect did not differ significantly from the electrical one.
+
+The topography of the Yes-No alpha envelope difference was negative over most of the scalp in both modalities, i.e. reduced pre-stimulus alpha amplitude preceded detected trials (Fig.~\ref{fig:3}C). For electrical stimulation the difference was maximal at CP4 at -158 ms, and for mechanical stimulation the strongest deflection fell at C4 at -400 ms, the beginning of the analysis window. Given the weak and non-significant mechanical envelope effect at the somatosensory electrodes, this peak at C4 should be interpreted with caution.
+
+\vspace{-7pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig03_alpha_amplitude.png}
+  \caption{Effects of pre-stimulus alpha envelope on detection rate in both modalities. A) Detection rate by alpha bin (higher bin number means higher envelope amplitude) for three channels CP4, C4 and O2. Statistics show the quadratic effect of alpha envelope on the detection rate. Alpha bins are computed within-subject. The shaded bands indicate the standard error of the mean between subjects. B) Alpha envelope per detection response. Statistics in A) and B) are FDR-corrected (Benjamini-Hochberg) across the three tested channels within each modality. The text in B) gives the FDR-corrected p-values of the response $\times$ modality linear mixed model (main effects and interaction). C) Topography showing the strongest (red highlighted electrode) difference in alpha envelope comparing perceived and unperceived trials.}
+  \label{fig:3}
+\end{figure}
+
+
+
+\subsubsection*{Phase locking in the alpha band as preparation for stimulus detection}
+\vspace{-7pt}
+
+We examined the dITPC before and after the visual cue, after regressing the absolute broadband ERP out of the dITPC time course, so that the reported effects are not explained by the evoked response. In electrical stimulation, dITPC at electrode CP4 was significantly higher for perceived compared to unperceived trials in the post-cue window ($t(33) = 3.85$, $p_\mathrm{FDR} = .001$, $d = 0.66$), indicating that stronger phase locking to the stimulus cue is associated with subsequent stimulus detection (Fig. \ref{fig:3_1}A).
+This effect was not significant at the central electrode CPz ($t(33) = -0.13$, $p_\mathrm{FDR} = .89$, Fig. \ref{fig:3_1}B), nor in the mechanical modality at either electrode (CP4: $t(31) = 0.59$, $p_\mathrm{FDR} = .73$; CPz: $t(31) = -0.35$, $p_\mathrm{FDR} = .73$).
+The Yes-No dITPC difference at CP4 in the electrical modality was larger after cue onset than in the pre-cue window ($t(33) = 2.54$, $p = .016$, $p_\mathrm{FDR} = .032$, $d = 0.44$). The pre- to post-cue change was absent at CPz ($t(33) = -0.39$, $p_\mathrm{FDR} = .70$) and not significant in the mechanical modality (CP4: $t(31) = 1.33$, $p_\mathrm{FDR} = .38$; CPz: $t(31) = 0.54$, $p_\mathrm{FDR} = .59$). The effect is therefore restricted to the cue-to-stimulus interval in electrical stimulation at CP4.
+
+To compare the post-cue dITPC effect directly between the modalities, we fitted a linear mixed model to the subject-level post-cue dITPC (Fig. \ref{fig:3_1}D; $n = 38$ subjects, of which 34 electrical and 32 mechanical subject-sessions; 28 subjects contributed both sessions). At CP4, dITPC was higher for perceived than for unperceived trials (response: $\beta = 0.0030$, SE $= 0.0013$, $z = 2.32$, $p = .020$, $p_\mathrm{FDR} = .041$) and higher in the electrical than in the mechanical modality (modality: $\beta = -0.0037$, SE $= 0.0013$, $z = -2.80$, $p = .005$, $p_\mathrm{FDR} = .010$). The response $\times$ modality interaction was not significant (interaction: $\beta = -0.0042$, SE $= 0.0025$, $z = -1.66$, $p = .098$, $p_\mathrm{FDR} = .20$). At CPz, neither main effect nor the interaction reached significance (response: $\beta = -0.0003$, SE $= 0.0011$, $z = -0.26$, $p_\mathrm{FDR} = .80$; modality: $\beta = -0.0004$, SE $= 0.0012$, $z = -0.33$, $p_\mathrm{FDR} = .74$; interaction: $\beta = -0.0003$, SE $= 0.0023$, $z = -0.12$, $p_\mathrm{FDR} = .91$).
+
+To examine whether there is a specific alpha phase right before the stimulus, independent of the detection outcome, we computed the alpha phase 100 ms pre-stimulus (Fig. \ref{fig:3_1}C). In electrical stimulation, the alpha phase concentrated around a preferred angle (Rayleigh test, mean phase $\approx -112^{\circ}$, $R = 0.34$, $z = 4.00$, $p = .017$, $n = 34$, uncorrected).
+This was not the case for mechanical stimulation, where the alpha phase seemed rather randomly distributed (Rayleigh test, $R = 0.13$, $z = 0.53$, $p = .59$, $n = 32$). As a reliability check of the subject-level phases, we additionally tested for each session whether the single-trial phases at -100 ms were consistent across trials (Rayleigh test within session, $p < .05$, uncorrected). This was the case in 23 of 34 electrical and 21 of 32 mechanical sessions.
+
+To locate the dITPC effect we applied a two-sided spatio-temporal cluster-based permutation test to the per-subject Yes-No difference maps of the source reconstructed alpha band activity, separately for each modality (2000 permutations, cluster-forming threshold $t = 2.06$, -750 to -100 ms; 26 subjects in each modality). No cluster reached significance in either modality (smallest cluster-level $p = .54$ for electrical and $p = .52$ for mechanical stimulation), so the sensor-level dITPC effect at CP4 could not be localised in source space.
+
+
+
+\vspace{-7pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig03_alpha_itpc.png}
+  \caption{Effect of inter-trial phase coherence (dITPC) on detection outcome, after regressing the absolute broadband ERP out of the dITPC time course. A) and B) show the results for channel CP4 and CPz, each with the dITPC time course (perceived vs unperceived), the mean post-cue dITPC and the Yes-No dITPC difference before vs after cue onset, separately for the electrical (top) and mechanical (bottom) modality. Statistics are FDR-corrected (Benjamini-Hochberg) across the two tested channels within each modality. C) Phase of the alpha oscillation at 100 ms pre-stimulus at CP4, one circular mean per subject, pooled perceived and unperceived trials. Rayleigh test conducted per modality, uncorrected. Subjects whose single-trial phases at this time point were not consistent across trials (Rayleigh test within subject, $p \geq .05$, uncorrected) are shown as grey dots; the number of subjects with a significant test is given under each modality name. D) Post-cue dITPC per subject (grey lines connect the perceived and unperceived value of one subject), cell mean $\pm$ SEM (coloured markers) by detection response and modality at CP4 (top) and CPz (bottom). The statistics below each channel name give the FDR-corrected p-values of the main effects of response and modality and of the response $\times$ modality interaction (linear mixed model, FDR-corrected across the two channels per effect).}
+  \label{fig:3_1}
+\end{figure}
+
+
+
+\subsubsection*{Interactions between alpha effects, P50, and preparation negativity}
+\vspace{-7pt}
+We investigated if the alpha phase effect related to the early P50 post-stimulus evoked response. The P50 at CP4 increased with the pre-stimulus alpha amplitude bin in the mechanical, but not in the electrical modality (Fig. \ref{fig:7}A). Fitting one line per session across the eight bins and testing the slopes against zero gave a positive effect for mechanical stimulation (slope $= 0.041~\mu$V per bin, $t(31) = 3.15$, $p = .004$), indicating that higher pre-stimulus alpha amplitude preceded a larger early evoked response. The correlation between alpha power bin and P50 amplitude was not significant in the electrical condition (slope $= 0.030~\mu$V per bin, $t(33) = 1.92$, $p = .064$). Split by detection response (uncorrected), the mechanical slope was significant for unperceived trials (slope $= 0.056~\mu$V per bin, $t(31) = 2.37$, $p = .024$) but not for perceived trials (slope $= -0.005~\mu$V per bin, $t(31) = -0.13$, $p = .90$); in the electrical modality neither response reached significance (perceived: slope $= 0.034~\mu$V per bin, $t(33) = 1.58$, $p = .124$; unperceived: slope $= 0.021~\mu$V per bin, $t(33) = 1.00$, $p = .33$). 
+
+Sorting the trials by the alpha phase at -100 ms instead of by amplitude produced a graded pattern across the circle in both modalities (Fig. \ref{fig:7}B). The bin-wise P50 was largest for phase bins in the second and third quadrant, peaking in the 180°-202.5° bin for the electrical modality ($1.02~\mu$V) and in the 135°-157.5° bin for the mechanical modality ($1.23~\mu$V).
+
+To test whether the P50 reflects a topography distinct from the pre-stimulus alpha oscillation, we compared the pre-stimulus alpha and P50 topographies using TANOVA (Fig. \ref{fig:7}C). The observed global dissimilarity was significantly larger than expected under 5000 sign-flip permutations for both electrical (DISS $= 0.94$, null 95th percentile $= 0.40$, $p = .0002$) and mechanical stimulation (DISS $= 0.95$, null 95th percentile $= 0.39$, $p = .0002$), confirming that the P50 and pre-stimulus alpha topographies differ significantly in both modalities. The perceived versus unperceived difference topographies of alpha and P50 also differed in shape in both modalities (electrical: DISS $= 0.41$, null 95th percentile $= 0.31$, $p = .0008$; mechanical: DISS $= 0.46$, null 95th percentile $= 0.34$, $p = .0002$; Fig. \ref{fig:7}C, bottom row of each block).
+
+\vspace{-7pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Fig07.png}
+  \caption{Effect of pre-stimulus alpha amplitude and phase on the P50. Rows show the electrical (top) and the mechanical (bottom) modality. A) P50 amplitude at CP4 across eight equiprobable pre-stimulus alpha amplitude bins (higher bin number means higher envelope amplitude), pooled over responses (black) and split into perceived (orange) and unperceived (blue) trials; error bars give the standard error across sessions, the grey line the linear trend, and the title the session-level slope test. B) P50 amplitude at CP4 by pre-stimulus alpha phase at -100 ms, in 16 bins of equal angular width. Bar length and bar colour both encode the bin mean P50; the dashed circle marks 0 $\mu$V. Whiskers give the standard error across sessions. C) Topography comparison of pre-stimulus alpha activity and P50. The alpha topography represents the absolute Hilbert envelope at 100 ms pre-stimulus. The P50 topography is obtained at a fixed latency per modality (42 ms electrical, 62 ms mechanical). Prior to computing the difference topography we normalized the maps across electrodes by computing the root mean square of the centered map. D) Illustration of a 10 Hz alpha cycle (cosine convention: 0° = peak, 180° = trough) with the phase at -100 ms set to the strongest phase bin of electrical and mechanical trials at CP4.}
+  \label{fig:7}
+\end{figure}
+
+
+Finally we tested whether pre-stimulus phase locking relates to the amplitude of the negative preparation component at CPz (Fig. \ref{fig:8}). Since the component is measured as a negative peak, a negative correlation means that stronger phase locking accompanies a larger preparation negativity. None of the four correlations was significant after FDR correction (all $p_\mathrm{FDR} \geq .33$). The strongest relationship was a negative correlation for perceived trials in the electrical modality ($r = -.30$, $p = .082$, $p_\mathrm{FDR} = .33$, $n = 34$). The remaining three combinations were flat (electrical unperceived: $r = -.11$, $p = .52$, $n = 34$; mechanical perceived: $r = .11$, $p = .55$, $n = 32$; mechanical unperceived: $r = .10$, $p = .57$, $n = 32$). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/Fig08_cnv_alpha.png}
+	\caption{A) The time course of the preparatory negativity signal by detection response and modality. B) Correlation between alpha dITPC and the amplitude of the preparatory negativity signal by detection response.}
+	\label{fig:8}
+\end{figure}
+
+
+
+\section*{Discussion}
+
+In this study, we investigated pre- and post-stimulus processes during mechanical and electrical somatosensory perception.
+We found potential correlates of conscious perception in a time window that included the N80 and the N140 in the electrode C6 in our single channel analysis. Most studies reported the N140 as a neural correlate of consciousness \cite{auksztulewiczRecurrentNeuralProcessing2012, schroderDissociatingPerceptualAwareness2021, forschackDissociableNeuralCorrelates2020}, while some studies reported earlier differences between perceived and unperceived stimulation \cite{palvaEarlyNeuralCorrelates2005, jonesNeuralCorrelatesTactile2007, forsterERPResponsesReveal2025}. The spatio-temporal cluster-based permutation analysis revealed the earliest post-stimulus cluster peak at 138 ms at electrode C4, which matches the N140 latency \cite{forschackDissociableNeuralCorrelates2020, schroderDistillingNeuralCorrelates2022}. 
+In the spatio-temporal analysis we observed a strong fronto-central negative preparation effect starting already before stimulation onset. It was more negative for perceived compared to unperceived trials, which was also visible in the single-channel analysis of the electrode CP4 showing a lower amplitude from 52 ms before stimulation until 38 ms post-stimulus. 
+Importantly, there was no interaction effect of modality and stimulus detection at the latencies of the P50, N80 or N140, as we would have expected based on the findings by Förster et al. \cite{forsterERPResponsesReveal2025}, who reported a fully absent P50 component for unperceived trials in the mechanical condition. Interaction clusters appeared only later in the epoch: in the spatio-temporal analysis in one right fronto-central positive cluster from 192 ms (peak at C4 at) that lasted until the end of the epoch. In the single channel analysis of CP4 we observed an interaction even before the stimulus (-186 to -130 ms), suggesting different preparation mechanisms in the broad band activity.
+Instead, we found an effect of stimulus intensity at 32 to 82 ms, which is characteristic of the P50 component and in line with previous literature showing that the P50 reflects processing of physical characteristics of the stimulus \cite{forschackDissociableNeuralCorrelates2020, schroderDissociatingPerceptualAwareness2021}. 
+One might argue that because the ERP trace observed in channel CP4 is contaminated by strong oscillatory signals already before stimulus onset, early post-stimulus responses are just a continuation of those oscillations. When examining the topographies of the P50 component at the respective time points per modality, we observed a clear lateral dipole (Fig. \ref{fig:7}C) with a profile that is highly similar to what was previously reported as a P50 topography \cite{forschackDissociableNeuralCorrelates2020, schroderDissociatingPerceptualAwareness2021}. 
+The electrode CP4 was closer to the hotspot of pre-stimulus occipital alpha and therefore its trace showed more contamination than the electrode C6, where we observed a clear P50 peak for both modalities.
+Besides that, we observed a delayed mechanical P50 peak (average peak of 62 ms) compared to the electrical P50 (average peak of 42 ms) and similarly for later component peaks, which is in line with Alouit et al. \cite{alouitCorticalActivationsInduced2025}. They directly compared supra threshold electrical and mechanical stimulation and observed increasingly higher delays in ERP component peaks for the mechanical modality. 
+One possible cause for the absence of the P50 in the study by Förster et al. \cite{forsterERPResponsesReveal2025} could be the lack of preparation towards the stimulus. 
+Expectancy might induce effects that could overlap with a weaker effect early post-stimulus. 
+Another reason for the diverging findings might be the difference in performing the threshold assessment. 
+Jones et al. \cite{jonesNeuralCorrelatesTactile2007} reported a significantly larger component peak at 75 ms for a static threshold, but not when using a dynamically adapting stimulus threshold. 
+Gusso et al. \cite{gussoMoreFeelingScalp2021} applied vibrotactile stimulation and used a dynamical assessment method by continuously maintaining the threshold at 50\% detection probability. They found no statistically significant ERP components in the 50–70 ms range. 
+We performed threshold assessment before each experimental block (8 times in total), while Förster et al. \cite{forsterERPResponsesReveal2025} performed only one assessment before the experiment.
+
+
+We did find an effect of the main factor modality in the N140 window in C6 as well as significant spatio-temporal clusters, which spanned the entire epoch and nearly all electrodes. In the full channel analysis, the positive modality cluster had its maximum at 128 ms post-stimulus at the electrode C4 ($z = 8.03$). In source space, the right hemisphere dominated, but only marginally with 60\% right and 40\% left activation of the strongest vertices (right postcentral gyrus 23\%, right rostral middle frontal gyrus 11\%, left postcentral gyrus 10\%, left precentral gyrus 9\%). Earlier in time, at 98 ms, the pre- and postcentral gyrus corresponded more clearly to the modality effect.  Together this suggests different pathways for the two modalities during that time window, in line with a previous study showing connectivity pattern differences between mechanical and electrical stimulation at mid- to late-latency stages \cite{alouitCorticalActivationsInduced2025}. Due to the issue that the preparation cue was presented 36 ms earlier in the mechanical condition (see Methods section), the early pre-stimulus clusters should be interpreted with caution. 
+Furthermore, we observed an interaction between intensity and detection at C6 during the N140.
+For perceived trials, the effect of intensity on the amplitude was negative, meaning stronger intensities evoked a more negative N140 component. In contrast, when the stimulus was not perceived, the amplitude increased with stimulation intensity.  
+This indicates that the N140 still transfers some information on stimulus characteristics, but when the stage of conscious processing was not achieved, this information does not seem to be lost.
+ 
+The source reconstruction of the statistical maps revealed post-stimulus activation exclusively in the right hemisphere, in the pre- and post-central gyrus at the peak of the detection effect at 138 ms. 
+This speaks for contributions of S1 towards a conscious percept, which is in line with \cite{jonesNeuralCorrelatesTactile2007, auksztulewiczRecurrentNeuralProcessing2012, gwynneConsciousTactilePerception2026} but does not let us conclude if S1 is sufficient for perception. The left hemisphere contributed stronger shortly afterwards, at 154 ms (59\% left-hemispheric, left postcentral gyrus 27\%). 
+The precentral gyrus includes premotor cortex, whose involvement in somatosensory perception was previously reported by de Lafuente and Romo \cite{delafuenteNeuralCorrelateSubjective2006}, who conducted a vibrotactile near-threshold experiment in macaque monkeys. They discovered that premotor activity increasingly correlated with stimulus perception and ruled out a simple motor preparation effect. It is still an ongoing debate which brain region is sufficient for conscious perception, which is impossible to answer with a purely correlational experimental design.
+
+We found that brain activity in somatosensory electrodes differs significantly between perceived and unperceived trials already before stimulation onset, starting at 284 ms pre-stimulus in electrode CP4 and at 280 ms in electrode C6 (see Fig. \ref{fig:2_sensor}). The spatio-temporal analysis over all channels revealed a frontal negative cluster (-378 to -236 ms) and a broad positive cluster starting at -384 ms. The source estimate at the peak of the frontal cluster (-276 ms) was mainly left-hemispheric (74\%) and lay in the left postcentral and precentral gyrus, so the frontal sensor cluster does not point to a frontal generator. The ipsilateral hemisphere therefore seems to play a role in the preparation for stimulus perception.
+
+\subsubsection*{Alpha phase coherence and amplitude affects stimulus detection}
+We found that phase locking in alpha band before stimulus onset might aid somatosensory perception. 
+
+In electrical stimulation, the alpha phase concentrated at a specific angle within the pre-stimulus time window, with a significant Rayleigh test at -100 ms ($p = .017$, Fig. \ref{fig:3_1}C). 
+When separately looking at perceived and unperceived trials, an increase in pre-stimulus alpha-band inter-trial phase coherence (dITPC) before stimulus onset could be observed, indicating that better tuning results in higher chances of perceiving the stimulus. 
+This effect was observed at electrode CP4, located closest to the contralateral primary somatosensory cortex, whereas no comparable increase in pre-stimulus dITPC was found at the central electrode CPz. 
+The difference in phase coherence between perceived and unperceived trials was significantly larger after cue onset than before it, suggesting that the cue plays a role in a phase-alignment process that facilitated subsequent stimulus detection. 
+
+The mechanical modality exhibited no significant pre-stimulus alpha phase locking and did not point to a specific phase at 100 ms pre-stimulus. Though, the detection response $\times$ modality interaction of the dITPC model was not significant at CP4 ($p_\mathrm{FDR} = .20$), while the main effect of detection response was significant ($p_\mathrm{FDR} = .041$), indicating that there is no evidence for a different detection effect in the modalities. One reason for weaker phase locking in mechanical stimulation might be that the piezoelectric stimulation timing is less precise compared to the sharp square wave form from the electrical stimulator, which could make exact phase tuning more difficult. Furthermore, the slight shift in timing of the visual cue by 36 ms in the mechanical modality might pose a limitation to the interpretation. However, given the small difference, especially with providing slightly more time in the mechanical condition, we do not believe that it affects the mechanism of perceptual preparation through temporally planned phase locking.
+
+Previous work showed that alpha phase at stimulus onset predicts somatosensory perception \cite{aiPhasePrestimulusAlpha2014} and that early post-stimulus phase locking is associated with successful detection \cite{palvaEarlyNeuralCorrelates2005}. 
+Unlike previous studies employing temporally unpredictable stimulation, our paradigm allows the observed phase alignment to be related directly to the presentation of the preparatory cue.
+Similar cue-induced phase alignment has been reported in the visual domain, where pre-stimulus alpha phase synchronization is associated with enhanced post-stimulus processing \cite{fellingerPrestimulusAlphaPhasealignment2011}. Our findings suggest that a comparable mechanism may also operate in the somatosensory system when temporal expectations are established by a visual cue, but this requires further testing. 
+
+
+
+In our study, plotting the P50 amplitude by alpha phase bin, we observed that the highest amplitude was at phase bin 180-202.5° for electrical and 135-157.5° for mechanical stimulation (see Fig. \ref{fig:7} B). Extrapolating this angle to stimulation onset assuming a 10 Hz wave, the oscillation would reach the peak at 47 ms for electrical and 59 ms for mechanical stimulation (for demonstration of the extrapolation see Fig. \ref{fig:7} D). This matches well with the expected time points of the P50 component peak respectively. 
+The pre-stimulus alpha phase at 100 ms before stimulus onset revealed an average phase of 248° in the electrical condition, which corresponds only weakly, to strongest phase bin center 191° (180-202.5°), since it is about 57° apart. In the mechanical condition the alpha phase was not specfic to a certain phase at 100 ms pre-stimulus. It is therefore not directly clear if tuning specifically to the P50 peak might enhance perception.
+Moreover, it is unlikely that pre-stimulus alpha and the P50 share the same neural mechanisms, since their topographies differed significantly (see Fig. \ref{fig:7} C). The effect that pre-stimulus alpha had on stimulus detection had a somatosensory hotspot (electrodes CP4 and C4 in the electrical and mechanical condition respectively), but did not show the same pattern of the perceptual effect at the P50 time point. We speculate that pre-stimulus alpha is a separate process from the generation of the P50 component, but that it might use shared pathways to modulate perceptual processing.
+The relationship between pre-stimulus alpha and the P50 amplitude is highly complex and depends on attention \cite{forschackAlphaBandBrainOscillations2017}.
+In source space, the cluster-based permutation test of the pre-stimulus alpha dITPC effect did not reveal a significant cluster in either modality, so the cortical origin of the sensor-level effect at CP4 remains undetermined.
+We replicated the effect of alpha amplitude on somatosensory near-threshold detection at the electrode C4, without a significant interaction between modalities \cite{aiPhasePrestimulusAlpha2014, forschackAlphaBandBrainOscillations2017}. The inverted-U relationship was significantly negative at C4 in the electrical condition (the relationship pointed in the same direction for the mechanical modality but only survived FDR correction at the electrode O2). Though, the curve is mostly monotonic and does not show a high quadratic coefficient. 
+In both modalities, the hotspot of the detection-suppressing effect of the alpha envelope was located in the somatosensory region (CP4 for the electrical and C4 for the mechanical modality), indicating that this reflects Rolandic alpha (Fig. \ref{fig:3}C). 
+  
+
+\vspace{3pt}
+
+Our cluster-based permutation analysis of broadband data revealed a preparation effect that was not specific to the somatosensory modality and was most prominent over central and frontal electrodes. This effect closely resembled the well-studied contingent negative variation (CNV), reflecting anticipation and expectancy \citep{walterCONTINGENTNEGATIVEVARIATION1964, desmedtSlowPotentialShifts1979, prevecMeasurementLightTouch1991}. The CNV does not guarantee conscious stimulus perception but instead reflects anticipation and attentiveness; it has also been reported in placebo experiments in which participants anticipated pain \citep{piedimonteMeasuringExpectationPain2017,babiloniContingentNegativeVariation2005}. In previous studies the pre-stimulus interval was typically longer (mostly exceeding 1~s), yet we nevertheless observed the negativity component under our shorter interval. 
+
+In comparison to the pre-stimulus alpha effect, our negativity component differed in two key aspects: it emerged later (from approximately -0.15 s) and at a lower frequency ($<$6 Hz) (Fig. \ref{fig:8}A). Furthermore, the negative peak was present in both modalities, whereas the dITPC effect was observed only for electrical stimulation and therefore seems to stem from a different preparatory process. Prior work in other sensory modalities indicates that CNV and alpha-band mechanisms co-occur during anticipation, though this association is typically attributed to alpha event-related desynchronization (ERD) rather than pre-stimulus alpha phase locking \citep{benderSpecificTaskAnticipation2004, bidet-cauletDynamicsAnticipatoryMechanisms2012,filipovicUncouplingContingentNegative2001}. Filipovic et al. \cite{filipovicUncouplingContingentNegative2001} argued against treating alpha ERD and the CNV as two measures of a single underlying preparatory process. The topography of the CNV appeared to shift from fronto-central to parieto-central electrodes, consistent with observations in the auditory domain \citep{benderSpecificTaskAnticipation2004}.
+We computed the correlation between the peak pre-stimulus dITPC and the peak of the negativity component for perceived and unperceived trials, by modality. None of the correlations was significant, the data therefore do not show a relationship between alpha phase locking and the amplitude of the negativity in either modality, which is in line with the view that the two reflect different preparatory processes. 
+
+\vspace{7pt}
+\subsection*{Conclusion} 
+
+In this study we showed that increased pre-stimulus alpha phase locking is associated with increased stimulus detection. Furthermore, we confirm previous findings that a lower pre-stimulus alpha amplitude goes along with a higher detection rate. There was no evidence present that the effects differed significantly between modalities. Post-stimulus neural correlates of conscious perception were identified at the N80 and the N140 component, which appeared largely similar for mechanical and electrical somatosensory near-threshold stimulation. Explorative analyses suggest that the P50 component amplitude relates weakly with pre-stimulus alpha oscillations in a way that the P50 was enhanced when the alpha oscillation was aligned with its peak. Both originate from different processes, since pre-stimulus alpha envelope and P50 topographies differed significantly.
+Future research should further investigate the interaction between alpha-band activity and the P50 component during perceptual preparation and determine how the timing of the preparatory cue shapes pre-stimulus phase locking in the alpha band.
+
+\vspace{7pt}
+\section*{CRediT authorship contribution statement}
+
+\noindent
+\textbf{Conceptualization:} RG, SW, TRK, AV;
+\textbf{Data curation:} RG, SW;
+\textbf{Formal analysis:} RG, SW, TRK, AV;
+\textbf{Funding acquisition:} TRK, AV;
+\textbf{Investigation:} RG, SW, TRK, AV;
+\textbf{Methodology:} RG, SW, TRK, AV;
+\textbf{Project administration:} RG, SW, TRK, AV;
+\textbf{Resources:} TRK, AV;
+\textbf{Software:} RG, SW;
+\textbf{Supervision:} TRK, AV;
+\textbf{Writing (original draft):} RG, TRK, AV;
+\textbf{Writing (review \& editing):} RG, SW, TRK, AV.
+
+\vspace{7pt}
+\section*{Declaration of competing interest}
+
+\noindent
+The authors have nothing to declare. There are no conflicts of interest.
+
+\vspace{7pt}
+\section*{Data and code availability}
+
+\noindent
+The analysis code is available on GitLab at \url{https://gitlab.com/PLACEHOLDER} (placeholder). The data are available on Zenodo at \url{https://doi.org/PLACEHOLDER} (placeholder).
+
+\newpage
+
+\section*{Appendix}
+
+\subsection*{Elimination of visual evoked response applying catch trial subtraction}
+\vspace{-7pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/Sup_01.png}
+  \caption{Elimination of visual evoked response applying catch trial subtraction.}
+  \label{fig:sup_1}
+\end{figure}
+
+
+\vfill\null
+\newpage
+% Please use pisikabst.bst. You may your own *.bib file.
+\bibliographystyle{pisikabst}
+\bibliography{MyLibrary}
+
+\end{document}

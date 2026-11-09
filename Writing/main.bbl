@@ -1,0 +1,709 @@
+\begin{thebibliography}{54}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1}}
+
+\bibitem[{\citenamefont{Koch et~al.}(2016)\citenamefont{Koch, Massimini, Boly,
+  and Tononi}}]{koch_neural_2016}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Koch}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Massimini}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Boly}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Tononi}},
+  \bibinfo{title}{Neural correlates of consciousness: progress and problems},
+  \href{http://dx.doi.org/10.1038/nrn.2016.22}{\emph{\bibinfo{journal}{Nature
+  Reviews. Neuroscience}}
+  }\href{http://dx.doi.org/10.1038/nrn.2016.22}{\textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{307}} (\bibinfo{year}{2016}), ISSN \bibinfo{issn}{1471-0048}.
+
+\bibitem[{\citenamefont{Schröder}(2022)}]{schroderDistillingNeuralCorrelates2022}
+\bibinfo{author}{\bibfnamefont{P.~K.} \bibnamefont{Schröder}},
+  \href{http://dx.doi.org/10.17169/refubium-34122}{\bibinfo{title}{Distilling
+  the neural correlates of conscious somatosensory perception}}
+  (\bibinfo{year}{2022}), \bibinfo{note}{accepted: 2022-03-30T07:10:54Z}.
+
+\bibitem[{\citenamefont{Forschack et~al.}(2017)\citenamefont{Forschack,
+  Nierhaus, Müller, and Villringer}}]{forschackAlphaBandBrainOscillations2017}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Forschack}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Nierhaus}},
+  \bibinfo{author}{\bibfnamefont{M.~M.} \bibnamefont{Müller}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Villringer}},
+  \bibinfo{title}{Alpha-{Band} {Brain} {Oscillations} {Shape} the {Processing}
+  of {Perceptible} as well as {Imperceptible} {Somatosensory} {Stimuli} during
+  {Selective} {Attention}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.2582-16.2017}{\emph{\bibinfo{journal}{The
+  Journal of Neuroscience: The Official Journal of the Society for
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.2582-16.2017}{\textbf{\bibinfo{volume}{37}},
+  \bibinfo{pages}{6983}} (\bibinfo{year}{2017}), ISSN
+  \bibinfo{issn}{1529-2401}.
+
+\bibitem[{\citenamefont{Förster et~al.}(2025)\citenamefont{Förster, Vardiero,
+  Nierhaus, and Blankenburg}}]{forsterERPResponsesReveal2025}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Förster}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Vardiero}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Nierhaus}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Blankenburg}},
+  \bibinfo{title}{{ERP} responses reveal different neural mechanisms for
+  perception of electrical and tactile stimuli},
+  \href{http://dx.doi.org/10.1016/j.concog.2025.103935}{\emph{\bibinfo{journal}{Consciousness
+  and Cognition}}
+  }\href{http://dx.doi.org/10.1016/j.concog.2025.103935}{\textbf{\bibinfo{volume}{135}},
+  \bibinfo{pages}{103935}} (\bibinfo{year}{2025}), ISSN
+  \bibinfo{issn}{1053-8100}.
+
+\bibitem[{\citenamefont{Schröder et~al.}(2021)\citenamefont{Schröder,
+  Nierhaus, and Blankenburg}}]{schroderDissociatingPerceptualAwareness2021}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Schröder}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Nierhaus}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Blankenburg}},
+  \bibinfo{title}{Dissociating {Perceptual} {Awareness} and {Postperceptual}
+  {Processing}: {The} {P300} {Is} {Not} a {Reliable} {Marker} of
+  {Somatosensory} {Target} {Detection}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.2950-20.2021}{\emph{\bibinfo{journal}{The
+  Journal of Neuroscience: The Official Journal of the Society for
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.2950-20.2021}{\textbf{\bibinfo{volume}{41}},
+  \bibinfo{pages}{4686}} (\bibinfo{year}{2021}), ISSN
+  \bibinfo{issn}{1529-2401}.
+
+\bibitem[{\citenamefont{Forschack et~al.}(2020)\citenamefont{Forschack,
+  Nierhaus, Müller, and
+  Villringer}}]{forschackDissociableNeuralCorrelates2020}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Forschack}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Nierhaus}},
+  \bibinfo{author}{\bibfnamefont{M.~M.} \bibnamefont{Müller}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Villringer}},
+  \bibinfo{title}{Dissociable neural correlates of stimulation intensity and
+  detection in somatosensation},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2020.116908}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2020.116908}{\textbf{\bibinfo{volume}{217}},
+  \bibinfo{pages}{116908}} (\bibinfo{year}{2020}), ISSN
+  \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Albertini et~al.}(2025)\citenamefont{Albertini,
+  Vecchio, Sartori, Pigorini, Talami, Zauli, Sarasso, Mikulan, Massimini, and
+  Avanzini}}]{albertiniConsciousTactilePerception2025}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Albertini}},
+  \bibinfo{author}{\bibfnamefont{M.~D.} \bibnamefont{Vecchio}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Sartori}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Pigorini}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Talami}},
+  \bibinfo{author}{\bibfnamefont{F.~M.} \bibnamefont{Zauli}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sarasso}},
+  \bibinfo{author}{\bibfnamefont{E.~P.} \bibnamefont{Mikulan}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Massimini}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Avanzini}},
+  \bibinfo{title}{Conscious tactile perception entails distinct neural dynamics
+  within somatosensory areas},
+  \href{http://dx.doi.org/10.1016/j.cub.2025.04.052}{\emph{\bibinfo{journal}{Current
+  Biology}}
+  }\href{http://dx.doi.org/10.1016/j.cub.2025.04.052}{\textbf{\bibinfo{volume}{0}}}
+  (\bibinfo{year}{2025}), ISSN \bibinfo{issn}{0960-9822}.
+
+\bibitem[{\citenamefont{Schubert et~al.}(2006)\citenamefont{Schubert,
+  Blankenburg, Lemm, Villringer, and Curio}}]{schubertNowYouFeel2006}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Schubert}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Blankenburg}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Lemm}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Villringer}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Curio}},
+  \bibinfo{title}{Now you feel it—now you don't: {ERP} correlates of
+  somatosensory awareness},
+  \href{http://dx.doi.org/10.1111/j.1469-8986.2006.00379.x}{\emph{\bibinfo{journal}{Psychophysiology}}
+  }\href{http://dx.doi.org/10.1111/j.1469-8986.2006.00379.x}{\textbf{\bibinfo{volume}{43}},
+  \bibinfo{pages}{31}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1469-8986},
+  \bibinfo{note}{\_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1469-8986.2006.00379.x}.
+
+\bibitem[{\citenamefont{Soininen and
+  Järvilehto}(1983)}]{soininenSomatosensoryEvokedPotentials1983}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Soininen}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Järvilehto}},
+  \bibinfo{title}{Somatosensory evoked potentials associated with tactile
+  stimulation at detection threshold in man},
+  \href{http://dx.doi.org/10.1016/0013-4694(83)90234-1}{\emph{\bibinfo{journal}{Electroencephalography
+  and Clinical Neurophysiology}}
+  }\href{http://dx.doi.org/10.1016/0013-4694(83)90234-1}{\textbf{\bibinfo{volume}{56}},
+  \bibinfo{pages}{494}} (\bibinfo{year}{1983}), ISSN \bibinfo{issn}{0013-4694}.
+
+\bibitem[{\citenamefont{Jones et~al.}(2007)\citenamefont{Jones, Pritchett,
+  Stufflebeam, Hämäläinen, and Moore}}]{jonesNeuralCorrelatesTactile2007}
+\bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{Jones}},
+  \bibinfo{author}{\bibfnamefont{D.~L.} \bibnamefont{Pritchett}},
+  \bibinfo{author}{\bibfnamefont{S.~M.} \bibnamefont{Stufflebeam}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Hämäläinen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{C.~I.} \bibnamefont{Moore}},
+  \bibinfo{title}{Neural {Correlates} of {Tactile} {Detection}: {A} {Combined}
+  {Magnetoencephalography} and {Biophysically} {Based} {Computational}
+  {Modeling} {Study}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.0482-07.2007}{\emph{\bibinfo{journal}{Journal
+  of Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.0482-07.2007}{\textbf{\bibinfo{volume}{27}},
+  \bibinfo{pages}{10751}} (\bibinfo{year}{2007}), ISSN
+  \bibinfo{issn}{0270-6474, 1529-2401}.
+
+\bibitem[{\citenamefont{Gusso et~al.}(2021)\citenamefont{Gusso,
+  Christison-Lagay, Zuckerman, Chandrasekaran, Kronemer, Ding, Freedman,
+  Nohama, and Blumenfeld}}]{gussoMoreFeelingScalp2021}
+\bibinfo{author}{\bibfnamefont{M.~M.} \bibnamefont{Gusso}},
+  \bibinfo{author}{\bibfnamefont{K.~L.} \bibnamefont{Christison-Lagay}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Zuckerman}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Chandrasekaran}},
+  \bibinfo{author}{\bibfnamefont{S.~I.} \bibnamefont{Kronemer}},
+  \bibinfo{author}{\bibfnamefont{J.~Z.} \bibnamefont{Ding}},
+  \bibinfo{author}{\bibfnamefont{N.~C.} \bibnamefont{Freedman}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Nohama}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Blumenfeld}},
+  \bibinfo{type}{preprint}, \bibinfo{institution}{Neuroscience}
+  (\bibinfo{year}{2021}),
+  \urlprefix\url{http://biorxiv.org/lookup/doi/10.1101/2021.10.31.466706}.
+
+\bibitem[{\citenamefont{Johnson}(2001)}]{johnsonRolesFunctionsCutaneous2001}
+\bibinfo{author}{\bibfnamefont{K.~O.} \bibnamefont{Johnson}},
+  \bibinfo{title}{The roles and functions of cutaneous mechanoreceptors},
+  \href{http://dx.doi.org/10.1016/s0959-4388(00)00234-8}{\emph{\bibinfo{journal}{Current
+  Opinion in Neurobiology}}
+  }\href{http://dx.doi.org/10.1016/s0959-4388(00)00234-8}{\textbf{\bibinfo{volume}{11}},
+  \bibinfo{pages}{455}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{0959-4388}.
+
+\bibitem[{\citenamefont{Abraira and
+  Ginty}(2013)}]{abrairaSensoryNeuronsTouch2013}
+\bibinfo{author}{\bibfnamefont{V.~E.} \bibnamefont{Abraira}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.~D.} \bibnamefont{Ginty}},
+  \bibinfo{title}{The sensory neurons of touch},
+  \href{http://dx.doi.org/10.1016/j.neuron.2013.07.051}{\emph{\bibinfo{journal}{Neuron}}
+  }\href{http://dx.doi.org/10.1016/j.neuron.2013.07.051}{\textbf{\bibinfo{volume}{79}},
+  \bibinfo{pages}{618}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{1097-4199}.
+
+\bibitem[{\citenamefont{Stephani et~al.}(2022)\citenamefont{Stephani, Nierula,
+  Villringer, Eippert, and Nikulin}}]{stephaniCorticalResponseVariability2022}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Stephani}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Nierula}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Villringer}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Eippert}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{V.~V.} \bibnamefont{Nikulin}},
+  \bibinfo{title}{Cortical response variability is driven by local excitability
+  changes with somatotopic organization},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2022.119687}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2022.119687}{\textbf{\bibinfo{volume}{264}},
+  \bibinfo{pages}{119687}} (\bibinfo{year}{2022}), ISSN
+  \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Stephani et~al.}(2021)\citenamefont{Stephani, Hodapp,
+  Jamshidi~Idaji, Villringer, and
+  Nikulin}}]{stephaniNeuralExcitabilitySensory2021}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Stephani}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Hodapp}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Jamshidi~Idaji}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Villringer}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{V.~V.}
+  \bibnamefont{Nikulin}}, \bibinfo{title}{Neural excitability and sensory input
+  determine intensity perception with opposing directions in initial cortical
+  responses},
+  \href{http://dx.doi.org/10.7554/eLife.67838}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/eLife.67838}{\textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{e67838}} (\bibinfo{year}{2021}), ISSN
+  \bibinfo{issn}{2050-084X}.
+
+\bibitem[{\citenamefont{Anderson and
+  Ding}(2011)}]{andersonAttentionalModulationSomatosensory2011}
+\bibinfo{author}{\bibfnamefont{K.~L.} \bibnamefont{Anderson}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ding}},
+  \bibinfo{title}{Attentional modulation of the somatosensory mu rhythm},
+  \href{http://dx.doi.org/10.1016/j.neuroscience.2011.02.004}{\emph{\bibinfo{journal}{Neuroscience}}
+  }\href{http://dx.doi.org/10.1016/j.neuroscience.2011.02.004}{\textbf{\bibinfo{volume}{180}},
+  \bibinfo{pages}{165}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{0306-4522}.
+
+\bibitem[{\citenamefont{Zhang and
+  Ding}(2010)}]{zhangDetectionWeakSomatosensory2010}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Zhang}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ding}},
+  \bibinfo{title}{Detection of a {Weak} {Somatosensory} {Stimulus}: {Role} of
+  the {Prestimulus} {Mu} {Rhythm} and {Its} {Top}–{Down} {Modulation}},
+  \href{http://dx.doi.org/10.1162/jocn.2009.21247}{\emph{\bibinfo{journal}{Journal
+  of Cognitive Neuroscience}}
+  }\href{http://dx.doi.org/10.1162/jocn.2009.21247}{\textbf{\bibinfo{volume}{22}},
+  \bibinfo{pages}{307}} (\bibinfo{year}{2010}), ISSN \bibinfo{issn}{0898-929X}.
+
+\bibitem[{\citenamefont{Ai and Ro}(2014)}]{aiPhasePrestimulusAlpha2014}
+\bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Ai}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Ro}}, \bibinfo{title}{The
+  phase of prestimulus alpha oscillations affects tactile perception}
+  (\bibinfo{year}{2014}),
+  \urlprefix\url{https://journals.physiology.org/doi/epdf/10.1152/jn.00125.2013}.
+
+\bibitem[{\citenamefont{Palva et~al.}(2005)\citenamefont{Palva,
+  Linkenkaer-Hansen, Näätänen, and Palva}}]{palvaEarlyNeuralCorrelates2005}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Palva}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Linkenkaer-Hansen}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Näätänen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~M.} \bibnamefont{Palva}},
+  \bibinfo{title}{Early neural correlates of conscious somatosensory
+  perception},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.0141-05.2005}{\emph{\bibinfo{journal}{The
+  Journal of Neuroscience: The Official Journal of the Society for
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.0141-05.2005}{\textbf{\bibinfo{volume}{25}},
+  \bibinfo{pages}{5248}} (\bibinfo{year}{2005}), ISSN
+  \bibinfo{issn}{1529-2401}.
+
+\bibitem[{\citenamefont{Weisz et~al.}(2014)\citenamefont{Weisz, Wühle,
+  Monittola, Demarchi, Frey, Popov, and
+  Braun}}]{weiszPrestimulusOscillatoryPower2014}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Weisz}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Wühle}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Monittola}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Demarchi}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Frey}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Popov}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Braun}},
+  \bibinfo{title}{Prestimulus oscillatory power and connectivity patterns
+  predispose conscious somatosensory perception},
+  \href{http://dx.doi.org/10.1073/pnas.1317267111}{\emph{\bibinfo{journal}{Proceedings
+  of the National Academy of Sciences}}
+  }\href{http://dx.doi.org/10.1073/pnas.1317267111}{\textbf{\bibinfo{volume}{111}},
+  \bibinfo{pages}{E417}} (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Frey et~al.}(2016)\citenamefont{Frey, Ruhnau, Leske,
+  Siegel, Braun, and Weisz}}]{freyTactileWindowConsciousness2016}
+\bibinfo{author}{\bibfnamefont{J.~N.} \bibnamefont{Frey}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Ruhnau}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Leske}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Siegel}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Braun}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Weisz}}, \bibinfo{title}{The
+  {Tactile} {Window} to {Consciousness} is {Characterized} by
+  {Frequency}-{Specific} {Integration} and {Segregation} of the {Primary}
+  {Somatosensory} {Cortex}},
+  \href{http://dx.doi.org/10.1038/srep20805}{\emph{\bibinfo{journal}{Scientific
+  Reports}}
+  }\href{http://dx.doi.org/10.1038/srep20805}{\textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{20805}} (\bibinfo{year}{2016}), ISSN
+  \bibinfo{issn}{2045-2322}.
+
+\bibitem[{\citenamefont{Mathewson et~al.}(2009)\citenamefont{Mathewson,
+  Gratton, Fabiani, Beck, and Ro}}]{mathewsonSeeNotSee2009}
+\bibinfo{author}{\bibfnamefont{K.~E.} \bibnamefont{Mathewson}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Gratton}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Fabiani}},
+  \bibinfo{author}{\bibfnamefont{D.~M.} \bibnamefont{Beck}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Ro}}, \bibinfo{title}{To see
+  or not to see: prestimulus alpha phase predicts visual awareness},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.3963-08.2009}{\emph{\bibinfo{journal}{The
+  Journal of Neuroscience: The Official Journal of the Society for
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3963-08.2009}{\textbf{\bibinfo{volume}{29}},
+  \bibinfo{pages}{2725}} (\bibinfo{year}{2009}), ISSN
+  \bibinfo{issn}{1529-2401}.
+
+\bibitem[{\citenamefont{Klimesch}(2012)}]{klimeschAlphabandOscillationsAttention2012}
+\bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Klimesch}},
+  \bibinfo{title}{Alpha-band oscillations, attention, and controlled access to
+  stored information},
+  \href{http://dx.doi.org/10.1016/j.tics.2012.10.007}{\emph{\bibinfo{journal}{Trends
+  in Cognitive Sciences}}
+  }\href{http://dx.doi.org/10.1016/j.tics.2012.10.007}{\textbf{\bibinfo{volume}{16}},
+  \bibinfo{pages}{606}} (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{1364-6613}.
+
+\bibitem[{\citenamefont{Fellinger et~al.}(2011)\citenamefont{Fellinger,
+  Klimesch, Gruber, Freunberger, and
+  Doppelmayr}}]{fellingerPrestimulusAlphaPhasealignment2011}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Fellinger}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Klimesch}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Gruber}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Freunberger}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Doppelmayr}},
+  \bibinfo{title}{Pre-stimulus alpha phase-alignment predicts {P1}-amplitude},
+  \href{http://dx.doi.org/10.1016/j.brainresbull.2011.03.025}{\emph{\bibinfo{journal}{Brain
+  Research Bulletin}}
+  }\href{http://dx.doi.org/10.1016/j.brainresbull.2011.03.025}{\textbf{\bibinfo{volume}{85}},
+  \bibinfo{pages}{417}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{1873-2747}.
+
+\bibitem[{\citenamefont{Koivisto et~al.}(2008)\citenamefont{Koivisto,
+  Lähteenmäki, Sørensen, Vangkilde, Overgaard, and
+  Revonsuo}}]{koivistoEarliestElectrophysiologicalCorrelate2008}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Koivisto}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Lähteenmäki}},
+  \bibinfo{author}{\bibfnamefont{T.~A.} \bibnamefont{Sørensen}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Vangkilde}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Overgaard}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Revonsuo}},
+  \bibinfo{title}{The earliest electrophysiological correlate of visual
+  awareness?},
+  \href{http://dx.doi.org/10.1016/j.bandc.2007.05.010}{\emph{\bibinfo{journal}{Brain
+  and Cognition}}
+  }\href{http://dx.doi.org/10.1016/j.bandc.2007.05.010}{\textbf{\bibinfo{volume}{66}},
+  \bibinfo{pages}{91}} (\bibinfo{year}{2008}), ISSN \bibinfo{issn}{0278-2626}.
+
+\bibitem[{\citenamefont{Eklund and
+  Wiens}(2018)}]{eklundVisualAwarenessNegativity2018}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Eklund}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Wiens}},
+  \bibinfo{title}{Visual awareness negativity is an early neural correlate of
+  awareness: {A} preregistered study with two {Gabor} sizes},
+  \href{http://dx.doi.org/10.3758/s13415-018-0562-z}{\emph{\bibinfo{journal}{Cognitive,
+  Affective \& Behavioral Neuroscience}}
+  }\href{http://dx.doi.org/10.3758/s13415-018-0562-z}{\textbf{\bibinfo{volume}{18}},
+  \bibinfo{pages}{176}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{1531-135X}.
+
+\bibitem[{\citenamefont{Gruber et~al.}(2014)\citenamefont{Gruber, Zauner,
+  Lechinger, Schabus, Kutil, and Klimesch}}]{gruberAlphaPhaseTemporal2014}
+\bibinfo{author}{\bibfnamefont{W.~R.} \bibnamefont{Gruber}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Zauner}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Lechinger}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Schabus}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kutil}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Klimesch}},
+  \bibinfo{title}{Alpha phase, temporal attention, and the generation of early
+  event related potentials},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2014.08.055}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2014.08.055}{\textbf{\bibinfo{volume}{103}},
+  \bibinfo{pages}{119}} (\bibinfo{year}{2014}), ISSN \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Oldfield}(1971)}]{oldfieldEdinburghHandednessInventory1971}
+\bibinfo{author}{\bibfnamefont{R.~C.} \bibnamefont{Oldfield}},
+  \href{http://dx.doi.org/10.1037/t23111-000}{\bibinfo{title}{Edinburgh
+  {Handedness} {Inventory}}} (\bibinfo{year}{1971}).
+
+\bibitem[{\citenamefont{Prins}(2013)}]{prinsPsimarginalAdaptiveMethod2013}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Prins}}, \bibinfo{title}{The
+  psi-marginal adaptive method: {How} to give nuisance parameters the attention
+  they deserve (no more, no less)},
+  \href{http://dx.doi.org/10.1167/13.7.3}{\emph{\bibinfo{journal}{Journal of
+  Vision}}
+  }\href{http://dx.doi.org/10.1167/13.7.3}{\textbf{\bibinfo{volume}{13}},
+  \bibinfo{pages}{3}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{1534-7362}.
+
+\bibitem[{\citenamefont{Jas et~al.}(2017)\citenamefont{Jas, Engemann, Bekhti,
+  Raimondo, and Gramfort}}]{jasAutorejectAutomatedArtifact2017}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Jas}},
+  \bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{Engemann}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Bekhti}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Raimondo}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Gramfort}},
+  \bibinfo{title}{Autoreject: {Automated} artifact rejection for {MEG} and
+  {EEG} data},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2017.06.030}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2017.06.030}{\textbf{\bibinfo{volume}{159}},
+  \bibinfo{pages}{417}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{1095-9572}.
+
+\bibitem[{\citenamefont{Pion-Tonachini
+  et~al.}(2019)\citenamefont{Pion-Tonachini, Kreutz-Delgado, and
+  Makeig}}]{pion-tonachini_iclabel_2019}
+\bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Pion-Tonachini}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Kreutz-Delgado}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Makeig}},
+  \bibinfo{title}{{ICLabel}: {An} automated electroencephalographic independent
+  component classifier, dataset, and website},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2019.05.026}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2019.05.026}{\textbf{\bibinfo{volume}{198}},
+  \bibinfo{pages}{181}} (\bibinfo{year}{2019}).
+
+\bibitem[{\citenamefont{Ehinger and Dimigen}(2019)}]{ehinger_unfold_2019}
+\bibinfo{author}{\bibfnamefont{B.~V.} \bibnamefont{Ehinger}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{O.}~\bibnamefont{Dimigen}},
+  \bibinfo{title}{Unfold: an integrated toolbox for overlap correction,
+  non-linear modeling, and regression-based {EEG} analysis},
+  \href{http://dx.doi.org/10.7717/peerj.7838}{\emph{\bibinfo{journal}{PeerJ}}
+  }\href{http://dx.doi.org/10.7717/peerj.7838}{\textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{e7838}} (\bibinfo{year}{2019}), ISSN
+  \bibinfo{issn}{2167-8359}.
+
+\bibitem[{\citenamefont{Ehinger and
+  Marathe}(2026)}]{benedikt_ehinger_2026_18374557}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Ehinger}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Marathe}},
+  \bibinfo{title}{s-ccs/clusterdepth.jl: v0.2.8} (\bibinfo{year}{2026}),
+  \urlprefix\url{https://doi.org/10.5281/zenodo.18374557}.
+
+\bibitem[{\citenamefont{Ségonne et~al.}(2004)\citenamefont{Ségonne, Dale,
+  Busa, Glessner, Salat, Hahn, and Fischl}}]{segonne_hybrid_2004}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Ségonne}},
+  \bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Dale}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Busa}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Glessner}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Salat}},
+  \bibinfo{author}{\bibfnamefont{H.~K.} \bibnamefont{Hahn}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fischl}}, \bibinfo{title}{A
+  hybrid approach to the skull stripping problem in {MRI}},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2004.03.032}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2004.03.032}{\textbf{\bibinfo{volume}{22}},
+  \bibinfo{pages}{1060}} (\bibinfo{year}{2004}), ISSN
+  \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Dale et~al.}(1999)\citenamefont{Dale, Fischl, and
+  Sereno}}]{dale_cortical_1999}
+\bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Dale}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fischl}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~I.} \bibnamefont{Sereno}},
+  \bibinfo{title}{Cortical surface-based analysis. {I}. {Segmentation} and
+  surface reconstruction},
+  \href{http://dx.doi.org/10.1006/nimg.1998.0395}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1006/nimg.1998.0395}{\textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{179}} (\bibinfo{year}{1999}), ISSN \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Fischl}(2012)}]{fischl_freesurfer_2012}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fischl}},
+  \bibinfo{title}{{FreeSurfer}},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2012.01.021}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2012.01.021}{\textbf{\bibinfo{volume}{62}},
+  \bibinfo{pages}{774}} (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{1095-9572}.
+
+\bibitem[{\citenamefont{Gramfort et~al.}(2014)\citenamefont{Gramfort, Luessi,
+  Larson, Engemann, Strohmeier, Brodbeck, Parkkonen, and
+  Hämäläinen}}]{gramfort_mne_2014}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Gramfort}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Luessi}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Larson}},
+  \bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{Engemann}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Strohmeier}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Brodbeck}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Parkkonen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~S.}
+  \bibnamefont{Hämäläinen}}, \bibinfo{title}{{MNE} software for processing
+  {MEG} and {EEG} data},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2013.10.027}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2013.10.027}{\textbf{\bibinfo{volume}{86}},
+  \bibinfo{pages}{446}} (\bibinfo{year}{2014}), ISSN \bibinfo{issn}{1053-8119}.
+
+\bibitem[{\citenamefont{Cauller and
+  Kulics}(1991)}]{caullerNeuralBasisBehaviorally1991}
+\bibinfo{author}{\bibfnamefont{L.~J.} \bibnamefont{Cauller}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.~T.} \bibnamefont{Kulics}},
+  \bibinfo{title}{The neural basis of the behaviorally relevant {N1} component
+  of the somatosensory-evoked potential in {SI} cortex of awake monkeys:
+  evidence that backward cortical projections signal conscious touch
+  sensation},
+  \href{http://dx.doi.org/10.1007/BF00230973}{\emph{\bibinfo{journal}{Experimental
+  Brain Research}}
+  }\href{http://dx.doi.org/10.1007/BF00230973}{\textbf{\bibinfo{volume}{84}},
+  \bibinfo{pages}{607}} (\bibinfo{year}{1991}), ISSN \bibinfo{issn}{1432-1106}.
+
+\bibitem[{\citenamefont{Cauller}(1995)}]{caullerLayerPrimarySensory1995}
+\bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Cauller}},
+  \bibinfo{title}{Layer {I} of primary sensory neocortex: where top-down
+  converges upon bottom-up},
+  \href{http://dx.doi.org/10.1016/0166-4328(95)00032-1}{\emph{\bibinfo{journal}{Behavioural
+  Brain Research}}
+  }\href{http://dx.doi.org/10.1016/0166-4328(95)00032-1}{\textbf{\bibinfo{volume}{71}},
+  \bibinfo{pages}{163}} (\bibinfo{year}{1995}), ISSN \bibinfo{issn}{0166-4328}.
+
+\bibitem[{\citenamefont{Allison et~al.}(1989)\citenamefont{Allison, McCarthy,
+  Wood, Williamson, and Spencer}}]{allisonHumanCorticalPotentials1989}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Allison}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{McCarthy}},
+  \bibinfo{author}{\bibfnamefont{C.~C.} \bibnamefont{Wood}},
+  \bibinfo{author}{\bibfnamefont{P.~D.} \bibnamefont{Williamson}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.~D.}
+  \bibnamefont{Spencer}}, \bibinfo{title}{Human cortical potentials evoked by
+  stimulation of the median nerve. {II}. {Cytoarchitectonic} areas generating
+  long-latency activity},
+  \href{http://dx.doi.org/10.1152/jn.1989.62.3.711}{\emph{\bibinfo{journal}{Journal
+  of Neurophysiology}}
+  }\href{http://dx.doi.org/10.1152/jn.1989.62.3.711}{\textbf{\bibinfo{volume}{62}},
+  \bibinfo{pages}{711}} (\bibinfo{year}{1989}), ISSN \bibinfo{issn}{0022-3077}.
+
+\bibitem[{\citenamefont{Allison et~al.}(1992)\citenamefont{Allison, McCarthy,
+  and Wood}}]{allisonRelationshipHumanLonglatency1992}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Allison}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{McCarthy}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.~C.} \bibnamefont{Wood}},
+  \bibinfo{title}{The relationship between human long-latency somatosensory
+  evoked potentials recorded from the cortical surface and from the scalp},
+  \href{http://dx.doi.org/10.1016/0168-5597(92)90082-M}{\emph{\bibinfo{journal}{Electroencephalography
+  and Clinical Neurophysiology/Evoked Potentials Section}}
+  }\href{http://dx.doi.org/10.1016/0168-5597(92)90082-M}{\textbf{\bibinfo{volume}{84}},
+  \bibinfo{pages}{301}} (\bibinfo{year}{1992}), ISSN \bibinfo{issn}{0168-5597}.
+
+\bibitem[{\citenamefont{Murray et~al.}(2008)\citenamefont{Murray, Brunet, and
+  Michel}}]{murrayTopographicERPAnalyses2008}
+\bibinfo{author}{\bibfnamefont{M.~M.} \bibnamefont{Murray}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Brunet}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.~M.} \bibnamefont{Michel}},
+  \bibinfo{title}{Topographic {ERP} analyses: a step-by-step tutorial review},
+  \href{http://dx.doi.org/10.1007/s10548-008-0054-5}{\emph{\bibinfo{journal}{Brain
+  Topography}}
+  }\href{http://dx.doi.org/10.1007/s10548-008-0054-5}{\textbf{\bibinfo{volume}{20}},
+  \bibinfo{pages}{249}} (\bibinfo{year}{2008}), ISSN \bibinfo{issn}{0896-0267}.
+
+\bibitem[{\citenamefont{Auksztulewicz et~al.}(2012)\citenamefont{Auksztulewicz,
+  Spitzer, and Blankenburg}}]{auksztulewiczRecurrentNeuralProcessing2012}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Auksztulewicz}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Spitzer}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Blankenburg}},
+  \bibinfo{title}{Recurrent {Neural} {Processing} and {Somatosensory}
+  {Awareness}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.3974-11.2012}{\emph{\bibinfo{journal}{Journal
+  of Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3974-11.2012}{\textbf{\bibinfo{volume}{32}},
+  \bibinfo{pages}{799}} (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{0270-6474,
+  1529-2401}.
+
+\bibitem[{\citenamefont{Alouit et~al.}(2025)\citenamefont{Alouit, Gavaret,
+  Ramdani, Lindberg, and Dupin}}]{alouitCorticalActivationsInduced2025}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alouit}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Gavaret}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Ramdani}},
+  \bibinfo{author}{\bibfnamefont{P.~G.} \bibnamefont{Lindberg}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Dupin}},
+  \bibinfo{title}{Cortical activations induced by electrical versus
+  vibrotactile finger stimulation using {EEG}},
+  \href{http://dx.doi.org/10.1016/j.neuroimage.2025.121249}{\emph{\bibinfo{journal}{NeuroImage}}
+  }\href{http://dx.doi.org/10.1016/j.neuroimage.2025.121249}{\textbf{\bibinfo{volume}{314}},
+  \bibinfo{pages}{121249}} (\bibinfo{year}{2025}), ISSN
+  \bibinfo{issn}{1095-9572}.
+
+\bibitem[{\citenamefont{Gwynne and
+  Tamè}(2026)}]{gwynneConsciousTactilePerception2026}
+\bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Gwynne}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Tamè}},
+  \bibinfo{title}{Conscious {Tactile} {Perception} {Depends} on {Early}
+  {Processing} in {Primary} {Somatosensory} {Cortex}},
+  \href{http://dx.doi.org/10.1111/ejn.70548}{\emph{\bibinfo{journal}{European
+  Journal of Neuroscience}}
+  }\href{http://dx.doi.org/10.1111/ejn.70548}{\textbf{\bibinfo{volume}{63}}}
+  (\bibinfo{year}{2026}), ISSN \bibinfo{issn}{0953-816X}.
+
+\bibitem[{\citenamefont{de~Lafuente and
+  Romo}(2006)}]{delafuenteNeuralCorrelateSubjective2006}
+\bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{de~Lafuente}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Romo}},
+  \bibinfo{title}{Neural correlate of subjective sensory experience gradually
+  builds up across cortical areas},
+  \href{http://dx.doi.org/10.1073/pnas.0605826103}{\emph{\bibinfo{journal}{Proceedings
+  of the National Academy of Sciences of the United States of America}}
+  }\href{http://dx.doi.org/10.1073/pnas.0605826103}{\textbf{\bibinfo{volume}{103}},
+  \bibinfo{pages}{14266}} (\bibinfo{year}{2006}), ISSN
+  \bibinfo{issn}{0027-8424}.
+
+\bibitem[{\citenamefont{Walter et~al.}(1964)\citenamefont{Walter, Cooper,
+  Aldridge, Mccallum, and Winter}}]{walterCONTINGENTNEGATIVEVARIATION1964}
+\bibinfo{author}{\bibfnamefont{W.~G.} \bibnamefont{Walter}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Cooper}},
+  \bibinfo{author}{\bibfnamefont{V.~J.} \bibnamefont{Aldridge}},
+  \bibinfo{author}{\bibfnamefont{W.~C.} \bibnamefont{Mccallum}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{A.~L.}
+  \bibnamefont{Winter}}, \bibinfo{title}{Contingent negative variation: an
+  electric sign of sensorimotor association and expectancy in the human brain},
+  \href{http://dx.doi.org/10.1038/203380a0}{\emph{\bibinfo{journal}{Nature}}
+  }\href{http://dx.doi.org/10.1038/203380a0}{\textbf{\bibinfo{volume}{203}},
+  \bibinfo{pages}{380}} (\bibinfo{year}{1964}), ISSN \bibinfo{issn}{0028-0836}.
+
+\bibitem[{\citenamefont{Desmedt and
+  Debecker}(1979)}]{desmedtSlowPotentialShifts1979}
+\bibinfo{author}{\bibfnamefont{J.~E.} \bibnamefont{Desmedt}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Debecker}},
+  \bibinfo{title}{Slow potential shifts and decision {P350} interactions in
+  tasks with random sequences of near-threshold clicks and finger stimuli
+  delivered at regular intervals},
+  \href{http://dx.doi.org/10.1016/0013-4694(79)90294-3}{\emph{\bibinfo{journal}{Electroencephalography
+  and Clinical Neurophysiology}}
+  }\href{http://dx.doi.org/10.1016/0013-4694(79)90294-3}{\textbf{\bibinfo{volume}{47}},
+  \bibinfo{pages}{671}} (\bibinfo{year}{1979}), ISSN \bibinfo{issn}{0013-4694}.
+
+\bibitem[{\citenamefont{Prevec and
+  Berić}(1991)}]{prevecMeasurementLightTouch1991}
+\bibinfo{author}{\bibfnamefont{T.~S.} \bibnamefont{Prevec}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Berić}},
+  \bibinfo{title}{Measurement of light touch perception threshold by contingent
+  negative variation},
+  \href{http://dx.doi.org/10.1007/BF00230977}{\emph{\bibinfo{journal}{Experimental
+  Brain Research}}
+  }\href{http://dx.doi.org/10.1007/BF00230977}{\textbf{\bibinfo{volume}{84}},
+  \bibinfo{pages}{643}} (\bibinfo{year}{1991}), ISSN \bibinfo{issn}{0014-4819}.
+
+\bibitem[{\citenamefont{Piedimonte et~al.}(2017)\citenamefont{Piedimonte,
+  Guerra, Vighetti, and Carlino}}]{piedimonteMeasuringExpectationPain2017}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Piedimonte}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Guerra}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Vighetti}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Carlino}},
+  \bibinfo{title}{Measuring expectation of pain: {Contingent} negative
+  variation in placebo and nocebo effects},
+  \href{http://dx.doi.org/10.1002/ejp.990}{\emph{\bibinfo{journal}{European
+  Journal of Pain}}
+  }\href{http://dx.doi.org/10.1002/ejp.990}{\textbf{\bibinfo{volume}{21}},
+  \bibinfo{pages}{874}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{1532-2149}.
+
+\bibitem[{\citenamefont{Babiloni et~al.}(2005)\citenamefont{Babiloni,
+  Brancucci, Pizzella, Romani, Tecchio, Torquati, Zappasodi, Arendt-Nielsen,
+  Chen, and Rossini}}]{babiloniContingentNegativeVariation2005}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Babiloni}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Brancucci}},
+  \bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Pizzella}},
+  \bibinfo{author}{\bibfnamefont{G.~L.} \bibnamefont{Romani}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Tecchio}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Torquati}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Zappasodi}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Arendt-Nielsen}},
+  \bibinfo{author}{\bibfnamefont{A.~C.~N.} \bibnamefont{Chen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{P.~M.}
+  \bibnamefont{Rossini}}, \bibinfo{title}{Contingent negative variation in the
+  parasylvian cortex increases during expectancy of painful sensorimotor
+  events: a magnetoencephalographic study},
+  \href{http://dx.doi.org/10.1037/0735-7044.119.2.491}{\emph{\bibinfo{journal}{Behavioral
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1037/0735-7044.119.2.491}{\textbf{\bibinfo{volume}{119}},
+  \bibinfo{pages}{491}} (\bibinfo{year}{2005}), ISSN \bibinfo{issn}{0735-7044}.
+
+\bibitem[{\citenamefont{Bender et~al.}(2004)\citenamefont{Bender, Resch,
+  Weisbrod, and Oelkers-Ax}}]{benderSpecificTaskAnticipation2004}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Bender}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Resch}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Weisbrod}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Oelkers-Ax}},
+  \bibinfo{title}{Specific task anticipation versus unspecific orienting
+  reaction during early contingent negative variation},
+  \href{http://dx.doi.org/10.1016/j.clinph.2004.03.023}{\emph{\bibinfo{journal}{Clinical
+  Neurophysiology}}
+  }\href{http://dx.doi.org/10.1016/j.clinph.2004.03.023}{\textbf{\bibinfo{volume}{115}},
+  \bibinfo{pages}{1836}} (\bibinfo{year}{2004}), ISSN
+  \bibinfo{issn}{1388-2457}.
+
+\bibitem[{\citenamefont{Bidet-Caulet et~al.}(2012)\citenamefont{Bidet-Caulet,
+  Barbe, Roux, Viswanath, Barthélémy, Bruneau, Knight, and
+  Bonnet-Brilhault}}]{bidet-cauletDynamicsAnticipatoryMechanisms2012}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Bidet-Caulet}},
+  \bibinfo{author}{\bibfnamefont{P.-G.} \bibnamefont{Barbe}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Roux}},
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Viswanath}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Barthélémy}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Bruneau}},
+  \bibinfo{author}{\bibfnamefont{R.~T.} \bibnamefont{Knight}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Bonnet-Brilhault}},
+  \bibinfo{title}{Dynamics of anticipatory mechanisms during predictive context
+  processing},
+  \href{http://dx.doi.org/10.1111/j.1460-9568.2012.08223.x}{\emph{\bibinfo{journal}{The
+  European journal of neuroscience}}
+  }\href{http://dx.doi.org/10.1111/j.1460-9568.2012.08223.x}{\textbf{\bibinfo{volume}{36}},
+  \bibinfo{pages}{2996}} (\bibinfo{year}{2012}), ISSN
+  \bibinfo{issn}{0953-816X}.
+
+\bibitem[{\citenamefont{Filipović et~al.}(2001)\citenamefont{Filipović,
+  Jahanshahi, and Rothwell}}]{filipovicUncouplingContingentNegative2001}
+\bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{Filipović}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Jahanshahi}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~C.}
+  \bibnamefont{Rothwell}}, \bibinfo{title}{Uncoupling of contingent negative
+  variation and alpha band event-related desynchronization in a go/no-go task},
+  \href{http://dx.doi.org/10.1016/s1388-2457(01)00558-2}{\emph{\bibinfo{journal}{Clinical
+  Neurophysiology: Official Journal of the International Federation of Clinical
+  Neurophysiology}}
+  }\href{http://dx.doi.org/10.1016/s1388-2457(01)00558-2}{\textbf{\bibinfo{volume}{112}},
+  \bibinfo{pages}{1307}} (\bibinfo{year}{2001}), ISSN
+  \bibinfo{issn}{1388-2457}.
+
+\end{thebibliography}

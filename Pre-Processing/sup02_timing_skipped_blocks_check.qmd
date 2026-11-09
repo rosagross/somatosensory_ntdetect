@@ -1,0 +1,279 @@
+---
+title: "Sup_02 timing: blocks skipped by step000_sup02_timing_figure.py"
+format:
+  html:
+    embed-resources: true
+    code-fold: true
+jupyter: python3
+execute:
+  echo: true
+  warning: false
+---
+
+`step000_sup02_timing_figure.py` keeps only blocks with exactly 198 cue (code 4) and 198
+stimulus triggers. This document counts the skipped blocks and checks the cue-to-stimulus
+interval in them. It reads the raw `.set` files from `RAWDIR` and needs the `mne` environment.
+
+```{python}
+import os
+import glob
+import re
+import numpy as np
+import pandas as pd
+import mne
+from IPython.display import Markdown, display
+
+RAWDIR = os.getenv('RAWDIR')
+if not RAWDIR:
+    raise EnvironmentError("RAWDIR is not set.")
+
+session_type = 'NT'
+modalities = ['Mechanical', 'Electrical']
+subjects = np.arange(13, 53)
+n_trials_expected = 198
+stim_triggers = {'Electrical': 'A - Stimulation', 'Mechanical': 'B - Stimulation'}
+cue_code = '4'
+off_median_ms = 5  # an interval further than this from the block median counts as off
+```
+
+## Trigger counts and cue-to-stimulus intervals per block
+
+Each stimulus trigger is paired with the last cue before it. The script itself does not do
+this pairing; it is used here only to check the timing.
+
+```{python}
+def block_sort_key(path):
+    match = re.fullmatch(r'(\d{4}-\d{2}-\d{2}T\d{6})_session(\d+)\.set', os.path.basename(path))
+    if match is None:
+        raise ValueError(f"Unexpected .set file name: {path}")
+    return match.group(1), int(match.group(2))
+
+
+rows = []
+trial_dfs = []
+no_files = []
+for modality in modalities:
+    for sub in subjects:
+        sub = str(sub)
+        eeg_dir = os.path.join(RAWDIR, 'sub-0' + sub, 'ID' + sub + '_' + modality,
+                               'converted_EEG', session_type)
+        set_files = sorted(glob.glob(os.path.join(eeg_dir, '*.set')), key=block_sort_key)
+        if len(set_files) == 0:
+            no_files.append((int(sub), modality))
+            continue
+
+        for block, set_file in enumerate(set_files, start=1):
+            raw = mne.io.read_raw_eeglab(set_file, preload=False, verbose=False)
+            events, event_dict = mne.events_from_annotations(raw, verbose=False)
+            sfreq = raw.info['sfreq']
+            stim_trigger = stim_triggers[modality]
+            for key in (cue_code, stim_trigger):
+                if key not in event_dict:
+                    raise KeyError(f"{key!r} not found in events of {set_file}.")
+            cue = events[events[:, 2] == event_dict[cue_code], 0]
+            stim = events[events[:, 2] == event_dict[stim_trigger], 0]
+
+            # last cue before each stimulus
+            cue_idx = np.searchsorted(cue, stim, side='right') - 1
+            paired = cue_idx >= 0
+            interval = (stim[paired] - cue[cue_idx[paired]]) / sfreq * 1000
+            median = np.median(interval)
+            trial_dfs.append(pd.DataFrame({
+                'subject': int(sub), 'modality': modality, 'block': block,
+                'block_file': os.path.basename(set_file), 'cue_to_stim': interval,
+                'complete': len(cue) == n_trials_expected and len(stim) == n_trials_expected,
+            }))
+            rows.append(dict(
+                subject=int(sub), modality=modality, block=block,
+                block_file=os.path.basename(set_file), n_cue=len(cue), n_stim=len(stim),
+                median_ms=median, min_ms=interval.min(), max_ms=interval.max(),
+                n_off_median=int((np.abs(interval - median) > off_median_ms).sum()),
+                n_stim_sharing_cue=int(paired.sum() - len(np.unique(cue_idx[paired]))),
+            ))
+
+blocks = pd.DataFrame(rows)
+trials = pd.concat(trial_dfs, ignore_index=True)
+blocks['complete'] = (blocks['n_cue'] == n_trials_expected) & (blocks['n_stim'] == n_trials_expected)
+skipped = blocks[~blocks['complete']].copy()
+
+
+def reason(r):
+    if r.n_cue == r.n_stim:
+        return 'partial recording (cue = stim < 198)'
+    if r.n_stim > r.n_cue:
+        return 'more stim than cue triggers'
+    return 'cue 198, stim triggers missing'
+
+
+skipped['reason'] = skipped.apply(reason, axis=1)
+```
+
+## Counts
+
+```{python}
+n_sub_skipped = skipped['subject'].nunique()
+per_mod = skipped.groupby('modality')['subject'].nunique()
+display(Markdown(
+    f"- {n_sub_skipped} of {len(subjects)} subjects have at least one skipped block "
+    f"({per_mod.get('Electrical', 0)} electrical, {per_mod.get('Mechanical', 0)} mechanical).\n"
+    f"- {len(skipped)} of {len(blocks)} blocks are skipped; {int(blocks['complete'].sum())} are used.\n"
+    f"- Sessions without any `.set` file (also skipped by the script): "
+    + (", ".join(f"sub-{s} {m}" for s, m in no_files) if no_files else "none")
+))
+```
+
+```{python}
+skipped.groupby(['modality', 'reason']).size().rename('n_blocks').reset_index()
+```
+
+## Interval in skipped blocks
+
+```{python}
+skipped.groupby('modality').agg(
+    n_blocks=('block', 'size'), median_ms=('median_ms', 'median'),
+    min_ms=('min_ms', 'min'), max_ms=('max_ms', 'max'), n_off_median=('n_off_median', 'sum'),
+).round(1).reset_index()
+```
+
+For comparison, the same quantities in the blocks the script uses:
+
+```{python}
+blocks[blocks['complete']].groupby('modality').agg(
+    n_blocks=('block', 'size'), median_ms=('median_ms', 'median'),
+    min_ms=('min_ms', 'min'), max_ms=('max_ms', 'max'), n_off_median=('n_off_median', 'sum'),
+).round(1).reset_index()
+```
+
+Skipped blocks with intervals more than `off_median_ms` from their block median, or with
+stimulus triggers that share a cue:
+
+```{python}
+skipped[(skipped['n_off_median'] > 0) | (skipped['n_stim_sharing_cue'] > 0)][
+    ['subject', 'modality', 'block', 'n_cue', 'n_stim', 'median_ms', 'min_ms', 'max_ms',
+     'n_off_median', 'n_stim_sharing_cue']
+].round(1)
+```
+
+## All skipped blocks
+
+```{python}
+skipped[['subject', 'modality', 'block', 'block_file', 'n_cue', 'n_stim', 'reason',
+         'median_ms', 'min_ms', 'max_ms', 'n_off_median', 'n_stim_sharing_cue']].round(1)
+```
+
+## Outlier check across subjects
+
+Same procedure as in `step000_sup02_timing_figure.py`: per subject and modality the mean and
+SD of the interval (pooled over blocks) are compared with the median and MAD across subjects
+of the same modality (robust z-score). A subject is flagged if |z| exceeds the threshold in
+mean or SD. The largest single-trial deviation from the modality median is also reported,
+together with the block it comes from.
+
+```{python}
+outlier_threshold = 3.5
+late_trial_ms = 5
+
+
+def robust_z(x):
+    mad = np.median(np.abs(x - np.median(x)))
+    if mad == 0:
+        raise ValueError("MAD across subjects is zero, robust z-score is undefined.")
+    return 0.6745 * (x - np.median(x)) / mad
+
+
+def outlier_check(times_df):
+    times_df = times_df.copy()
+    summary = (
+        times_df.groupby(['modality', 'subject'])
+        .agg(n_blocks=('block', 'nunique'), n_trials=('cue_to_stim', 'size'),
+             mean_ms=('cue_to_stim', 'mean'), sd_ms=('cue_to_stim', 'std'),
+             median_ms=('cue_to_stim', 'median'), min_ms=('cue_to_stim', 'min'),
+             max_ms=('cue_to_stim', 'max'))
+        .reset_index()
+    )
+    for col in ['mean_ms', 'sd_ms']:
+        summary[f'z_{col}'] = summary.groupby('modality')[col].transform(robust_z)
+    summary['outlier'] = (
+        (summary['z_mean_ms'].abs() > outlier_threshold) | (summary['z_sd_ms'].abs() > outlier_threshold)
+    )
+
+    modality_median = times_df.groupby('modality')['cue_to_stim'].transform('median')
+    times_df['abs_dev_from_median_ms'] = (times_df['cue_to_stim'] - modality_median).abs()
+    max_dev = (times_df.groupby(['modality', 'subject'])['abs_dev_from_median_ms'].max()
+               .rename('max_abs_dev_ms').reset_index())
+    summary = summary.merge(max_dev, on=['modality', 'subject'])
+
+    block_summary = (
+        times_df.groupby(['modality', 'subject', 'block', 'block_file'])
+        .agg(n_trials=('cue_to_stim', 'size'), mean_ms=('cue_to_stim', 'mean'),
+             sd_ms=('cue_to_stim', 'std'), min_ms=('cue_to_stim', 'min'),
+             max_ms=('cue_to_stim', 'max'), max_abs_dev_ms=('abs_dev_from_median_ms', 'max'),
+             n_late_trials=('abs_dev_from_median_ms', lambda x: int((x > late_trial_ms).sum())))
+        .reset_index()
+    )
+    block_summary['mean_dev_from_modality_median_ms'] = (
+        block_summary['mean_ms'] - block_summary['modality'].map(times_df.groupby('modality')['cue_to_stim'].median())
+    )
+    worst = (
+        block_summary.loc[block_summary.groupby(['modality', 'subject'])['max_abs_dev_ms'].idxmax(),
+                          ['modality', 'subject', 'block', 'block_file']]
+        .rename(columns={'block': 'worst_block', 'block_file': 'worst_block_file'})
+    )
+    summary = summary.merge(worst, on=['modality', 'subject'])
+    return summary, block_summary
+```
+
+### Complete blocks only (the data used in the figure)
+
+```{python}
+summary_complete, blocks_complete = outlier_check(trials[trials['complete']])
+display(Markdown(f"Subjects with |robust z| > {outlier_threshold} in mean or SD of the interval:"))
+flagged = summary_complete[summary_complete['outlier']]
+display(flagged.round(2) if len(flagged) else Markdown("none"))
+```
+
+Blocks of flagged subjects:
+
+```{python}
+flagged_blocks = blocks_complete.merge(flagged[['modality', 'subject']], on=['modality', 'subject'])
+flagged_blocks.round(2) if len(flagged_blocks) else Markdown("none")
+```
+
+Top 5 subjects by largest single-trial deviation from the modality median:
+
+```{python}
+summary_complete.sort_values('max_abs_dev_ms', ascending=False).head(5).round(2)
+```
+
+### All blocks, including the skipped ones
+
+The skipped blocks are added to the complete blocks, with the cue-stimulus pairing from above.
+
+```{python}
+summary_all, blocks_all = outlier_check(trials)
+display(Markdown(f"Subjects with |robust z| > {outlier_threshold} in mean or SD of the interval:"))
+flagged_all = summary_all[summary_all['outlier']]
+display(flagged_all.round(2) if len(flagged_all) else Markdown("none"))
+```
+
+Blocks of flagged subjects:
+
+```{python}
+flagged_blocks_all = blocks_all.merge(flagged_all[['modality', 'subject']], on=['modality', 'subject'])
+flagged_blocks_all.round(2) if len(flagged_blocks_all) else Markdown("none")
+```
+
+Top 5 subjects by largest single-trial deviation from the modality median:
+
+```{python}
+summary_all.sort_values('max_abs_dev_ms', ascending=False).head(5).round(2)
+```
+
+Subjects flagged only when the skipped blocks are included:
+
+```{python}
+new_flags = flagged_all.merge(flagged[['modality', 'subject']], on=['modality', 'subject'],
+                              how='left', indicator=True)
+new_flags = new_flags[new_flags['_merge'] == 'left_only'].drop(columns='_merge')
+new_flags.round(2) if len(new_flags) else Markdown("none")
+```

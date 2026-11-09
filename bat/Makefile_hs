@@ -1,0 +1,63 @@
+SESSION=a
+LOS=$(shell egrep "^${EXPSUBJ}..a" ${LISTOFSUBJECTS}| sed 's/a//')
+ALIGNED = $(foreach s,$(LOS),${SUBJECTS_DIR}$(s)/mri/T1-neuromag/sets/COR-aligned.fif)
+SUBJ = $(foreach name,$(LOS),$(name)${SESSION}/$(name))
+DIG = $(foreach name,$(SUBJ),${EXPDIR}coregistration/$(name)${SESSION}_dig.txt)
+CHAIN = $(subst _dig.txt,_mcmc_chain.bin,$(DIG))
+COR = $(subst _dig.txt,-trans.fif,$(DIG))
+
+.PHONY: all dig chain cor subj $(SUBJ)
+
+all: dig chain cor subj
+
+subj: $(SUBJ)
+
+dig: $(DIG)
+
+chain: $(CHAIN)
+
+cor: $(COR)
+
+$(SUBJ): %: ${EXPDIR}coregistration/%${SESSION}-aligned.fif ${EXPDIR}coregistration/%${SESSION}-head.fif ${EXPDIR}coregistration/%${SESSION}1.fif
+	echo "Subj:   " $(SUBJ)
+	echo "Muster: " $(*)
+
+${EXPDIR}coregistration/%${SESSION}-aligned.fif:
+	@echo "Symbolic link is created for $(notdir $@)"
+	@mkdir -p $(dir $@)
+	# @echo "ln -s -r ${SUBJECTS_DIR}$(subst ${SESSION}-aligned.fif,,$(notdir $@))/mri/T1-neuromag/sets/COR-aligned.fif $@"
+	ln -s -r ${SUBJECTS_DIR}$(subst ${SESSION}-aligned.fif,,$(notdir $@))/mri/T1-neuromag/sets/COR-aligned.fif $@
+
+${EXPDIR}coregistration/%$(SESSION)-head.fif:
+	@echo "Symbolic link is created for $(notdir $@)"
+	@mkdir -p $(dir $@)
+	# @echo "ln -s -r ${SUBJECTS_DIR}$(notdir $(*))/bem/$(notdir $(*))-head.fif $@"
+	ln -s -r ${SUBJECTS_DIR}$(notdir $(*))/bem/$(notdir $(*))-head.fif $@
+
+${EXPDIR}coregistration/%1.fif:
+	@echo "Symbolic link is created for $(notdir $@)"
+	@mkdir -p $(dir $@)
+	# @echo "ln -s -r ${RAWDIR}$(subst 1.fif,,$(notdir $@))/$(notdir $@) $@"
+	ln -s -r ${RAWDIR}$(subst 1.fif,,$(notdir $@))/$(notdir $@) $@
+
+$(DIG): %_dig.txt: %1.fif %-head.fif %-aligned.fif
+	head2mri_init.py $^ $@
+
+$(CHAIN): %_mcmc_chain.bin: %_dig.txt %_surf.txt
+	head2mri $^ $@ 1.0 > $@.log # 1.0 error scaling
+
+$(COR): %-trans.fif: %_dig.txt %-head.fif %_surf.txt %_head2mri_prereg.txt %_mcmc_chain_info.txt
+	head2mri_mle.py $^ $@ > $@.log
+
+%_surf.txt: %_dig.txt
+	@echo "$@ is created along with $<."
+	@echo "Remove $< if the target $@ does not exist."
+
+%_head2mri_prereg.txt: %_dig.txt
+	@echo "$@ is created along with $<."
+	@echo "Remove $< if the target $@ does not exist."
+
+%_mcmc_chain_info.txt: %_mcmc_chain.bin
+	@echo "$@ is created along with $<."
+	@echo "Remove $< if the target $@ does not exist."
+
